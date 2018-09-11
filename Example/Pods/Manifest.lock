@@ -1,0 +1,16 @@
+PODS:
+  - KWGraphTools (0.1.0)
+
+DEPENDENCIES:
+  - KWGraphTools (from `../`)
+
+EXTERNAL SOURCES:
+  KWGraphTools:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KWGraphTools: 59c3c3455e0cc1adc6f226ce045d06b24cbe92a8
+
+PODFILE CHECKSUM: 4fa0a3a2f4e7933dba304ff427736b9bb7974235
+
+COCOAPODS: 1.5.3

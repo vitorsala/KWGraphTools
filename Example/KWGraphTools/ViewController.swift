@@ -7,18 +7,33 @@
 //
 
 import UIKit
+import SpriteKit
+import GameplayKit
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view = SKView(frame: self.view.bounds)
+        if let scene = GKScene(fileNamed: TileMapScene.sceneName) {
+            
+            if let sceneNode = scene.rootNode as? TileMapScene {
+                sceneNode.scaleMode = .aspectFill
+                
+                if let view = self.view as? SKView {
+                    view.presentScene(sceneNode)
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                }
+            }
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
+    
 }
-

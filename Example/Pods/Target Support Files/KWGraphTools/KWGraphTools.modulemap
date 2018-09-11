@@ -1,0 +1,6 @@
+framework module KWGraphTools {
+  umbrella header "KWGraphTools-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,1014 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		046CA7F19D6A7B994F1F17F0F0412AA6 /* SKTileMapNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E6D7B34E2131EDBB8146C5836460FD /* SKTileMapNodeExtension.swift */; };
+		118FC31C770685035228EAD30819B1AF /* Pods-KWGraphTools_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6638C2CCCF6CFC3149B3FA2E94ED8E7F /* Pods-KWGraphTools_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A54367084EFA4E778BE1B40C4EDC78E /* KWGridGraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDF0B943EF5EFC84739C652ECF5218 /* KWGridGraphNode.swift */; };
+		5360DA4327A44691032C435A163A6B56 /* Pods-KWGraphTools_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C99872A7AB112DB420E708805484C1C8 /* Pods-KWGraphTools_Example-dummy.m */; };
+		556B2076A3FBBD16E63BF4F839FB0CEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		5CF5F16CF5EEF6E634EAB6A9904B6802 /* KWGraphTools-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD6298F9BE5474D052B6E65A30EA6B49 /* KWGraphTools-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7AC3EBB68C92B6CFB116D77AF29367B5 /* KWGridGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446594712DBF24ABF3F9EF737291E37 /* KWGridGraph.swift */; };
+		7D62C2951370A95D64C6C96A45B08E23 /* KWDjikstraPathfind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */; };
+		80D899C1C7E305B74AFD13725E57B5CB /* Pods-KWGraphTools_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC24226F266A9168C209161CDA2D0ACA /* Pods-KWGraphTools_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81B52B1B650DE536E272750AA7A82D66 /* Pods-KWGraphTools_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894D54256DF97CF8B7F4BB4EC6DC2854 /* Pods-KWGraphTools_Tests-dummy.m */; };
+		9E4105AFDF79D714B92F82AAFC1207BF /* KWConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC2F1AB1C4941B4AFB3AAD5F27434C /* KWConsts.swift */; };
+		DBCC853F46E49D92824C76B8F17DCF22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		DDB1DA20E3B155F56F3020DC644A1867 /* KWGraphTools-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA7B3BDD591BECB09AF0F2078E44215 /* KWGraphTools-dummy.m */; };
+		DF49FEFC390250CC61CB2166D75A4FC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E14CAC736DDB591F2FBA1C6318C7591C /* HeapTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B9CDB0EB8C570B87C203166DCDD33 /* HeapTree.swift */; };
+		F2F31393A7A6932C3E69A93F5E00123C /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606FB3A63A89B0D4DB8DDCC8DDBA341 /* PriorityQueue.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8068B5C8CBA5CD66484628A8F3465FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BAAD13444831F2C44586456103DABF4;
+			remoteInfo = "Pods-KWGraphTools_Example";
+		};
+		88CDD2015DA248E22E7AA951B483EBB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F113D46B876B78B8D92D97D7BB49E7C;
+			remoteInfo = KWGraphTools;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0265F171C5316ADA5F8F8062621BAE7A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		052BAF992AD777F47A92A72A57C9F6D3 /* Pods-KWGraphTools_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		0902A98DD6F8CDD00120A129B0813D55 /* KWGraphTools.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KWGraphTools.modulemap; sourceTree = "<group>"; };
+		13309BA12106E60BF83ABB8DCAB8CF82 /* KWGraphTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KWGraphTools.framework; path = KWGraphTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1717FFF8E84EE656D84E6577793375C0 /* Pods_KWGraphTools_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KWGraphTools_Example.framework; path = "Pods-KWGraphTools_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E1BB6DE884CA1DE80A49FCF175658D8 /* Pods-KWGraphTools_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KWGraphTools_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2790FE9DC551ACA48724C20DA000C1AA /* Pods-KWGraphTools_Example.labeled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Example.labeled.xcconfig"; sourceTree = "<group>"; };
+		2A9CF93F06E000B1B2BF55B3B39FF8B2 /* Pods-KWGraphTools_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KWGraphTools_Tests-resources.sh"; sourceTree = "<group>"; };
+		3606FB3A63A89B0D4DB8DDCC8DDBA341 /* PriorityQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
+		44FEA56129F5EDA3EDFAAE5FF06B1547 /* Pods-KWGraphTools_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		4F298DED087D8C37BCC2871AD0ECB501 /* Pods-KWGraphTools_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KWGraphTools_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		57AA35C4218988FE2CDC7A1CD06FD6B3 /* Pods_KWGraphTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KWGraphTools_Tests.framework; path = "Pods-KWGraphTools_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AABA410EB372C31855423F1562C162D /* KWGraphTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KWGraphTools-prefix.pch"; sourceTree = "<group>"; };
+		6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWDjikstraPathfind.swift; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6638C2CCCF6CFC3149B3FA2E94ED8E7F /* Pods-KWGraphTools_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KWGraphTools_Example-umbrella.h"; sourceTree = "<group>"; };
+		6B9E94E75DDB675B67DAF5576DC7AB91 /* Pods-KWGraphTools_Tests.labeled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Tests.labeled.xcconfig"; sourceTree = "<group>"; };
+		71BB465BE3D2B4068E1F1B362C8A0AFA /* Pods-KWGraphTools_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KWGraphTools_Tests.modulemap"; sourceTree = "<group>"; };
+		7446594712DBF24ABF3F9EF737291E37 /* KWGridGraph.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWGridGraph.swift; sourceTree = "<group>"; };
+		78E6D7B34E2131EDBB8146C5836460FD /* SKTileMapNodeExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SKTileMapNodeExtension.swift; sourceTree = "<group>"; };
+		7FA7B3BDD591BECB09AF0F2078E44215 /* KWGraphTools-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KWGraphTools-dummy.m"; sourceTree = "<group>"; };
+		800A75FDFD5074EF64B90428E0775ADE /* Pods-KWGraphTools_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		81002BA3D8CDB5E4A217C725FE7E5089 /* Pods-KWGraphTools_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KWGraphTools_Example-resources.sh"; sourceTree = "<group>"; };
+		82DC2485B63514C9FE59029BCEB19FE7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		894D54256DF97CF8B7F4BB4EC6DC2854 /* Pods-KWGraphTools_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KWGraphTools_Tests-dummy.m"; sourceTree = "<group>"; };
+		9377DD19281283A25D4E8A35BC8C1D92 /* Pods-KWGraphTools_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KWGraphTools_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		965B9CDB0EB8C570B87C203166DCDD33 /* HeapTree.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeapTree.swift; sourceTree = "<group>"; };
+		9E3CFD6012AA3D044335EE5A6CC6CD8C /* KWGraphTools.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = KWGraphTools.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F9E37AC2296A001B5BC106D45B0B5BB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		B24DBD103EF3574E4AAD8C101ABA54B8 /* Pods-KWGraphTools_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KWGraphTools_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		B29CBA01D36C361C775EA65D07B5E251 /* Pods-KWGraphTools_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C1B04C6DB25F361B9E70CF42FC9871CF /* Pods-KWGraphTools_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KWGraphTools_Example.modulemap"; sourceTree = "<group>"; };
+		C5508549552BD12F6046C85B52ECF26F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C92984338ED727BE26470D27563BD8BB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C99872A7AB112DB420E708805484C1C8 /* Pods-KWGraphTools_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KWGraphTools_Example-dummy.m"; sourceTree = "<group>"; };
+		CCBA7C451C6EF389C1F93F42771B32E7 /* Pods-KWGraphTools_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KWGraphTools_Example-frameworks.sh"; sourceTree = "<group>"; };
+		CEAC2F1AB1C4941B4AFB3AAD5F27434C /* KWConsts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWConsts.swift; sourceTree = "<group>"; };
+		DD6298F9BE5474D052B6E65A30EA6B49 /* KWGraphTools-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KWGraphTools-umbrella.h"; sourceTree = "<group>"; };
+		F6CDF0B943EF5EFC84739C652ECF5218 /* KWGridGraphNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWGridGraphNode.swift; sourceTree = "<group>"; };
+		FB0528E784B6D79CD947623B2A35C5B7 /* KWGraphTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KWGraphTools.xcconfig; sourceTree = "<group>"; };
+		FC24226F266A9168C209161CDA2D0ACA /* Pods-KWGraphTools_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KWGraphTools_Tests-umbrella.h"; sourceTree = "<group>"; };
+		FF03F43A6AF60C0E4E4100ACF517417B /* Pods-KWGraphTools_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KWGraphTools_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89BCAA2F3B75D260DCDD3DF7F778508A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				556B2076A3FBBD16E63BF4F839FB0CEA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9914AAB1C77144A983E18CFDB075CDCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBCC853F46E49D92824C76B8F17DCF22 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5A000999844626835CDFAE3559B3131 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF49FEFC390250CC61CB2166D75A4FC2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A3A5989FFCE1FB6F4573D71DC544A1C /* Dijkstra */ = {
+			isa = PBXGroup;
+			children = (
+				6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */,
+			);
+			name = Dijkstra;
+			path = Dijkstra;
+			sourceTree = "<group>";
+		};
+		28703C44BF44A38DCB7AB393B67A2312 /* Pods-KWGraphTools_Example */ = {
+			isa = PBXGroup;
+			children = (
+				82DC2485B63514C9FE59029BCEB19FE7 /* Info.plist */,
+				C1B04C6DB25F361B9E70CF42FC9871CF /* Pods-KWGraphTools_Example.modulemap */,
+				1E1BB6DE884CA1DE80A49FCF175658D8 /* Pods-KWGraphTools_Example-acknowledgements.markdown */,
+				4F298DED087D8C37BCC2871AD0ECB501 /* Pods-KWGraphTools_Example-acknowledgements.plist */,
+				C99872A7AB112DB420E708805484C1C8 /* Pods-KWGraphTools_Example-dummy.m */,
+				CCBA7C451C6EF389C1F93F42771B32E7 /* Pods-KWGraphTools_Example-frameworks.sh */,
+				81002BA3D8CDB5E4A217C725FE7E5089 /* Pods-KWGraphTools_Example-resources.sh */,
+				6638C2CCCF6CFC3149B3FA2E94ED8E7F /* Pods-KWGraphTools_Example-umbrella.h */,
+				44FEA56129F5EDA3EDFAAE5FF06B1547 /* Pods-KWGraphTools_Example.debug.xcconfig */,
+				2790FE9DC551ACA48724C20DA000C1AA /* Pods-KWGraphTools_Example.labeled.xcconfig */,
+				B29CBA01D36C361C775EA65D07B5E251 /* Pods-KWGraphTools_Example.release.xcconfig */,
+			);
+			name = "Pods-KWGraphTools_Example";
+			path = "Target Support Files/Pods-KWGraphTools_Example";
+			sourceTree = "<group>";
+		};
+		2B26DA1B03228BB382A41CD81F3DF729 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				965B9CDB0EB8C570B87C203166DCDD33 /* HeapTree.swift */,
+				3606FB3A63A89B0D4DB8DDCC8DDBA341 /* PriorityQueue.swift */,
+			);
+			name = "Data Structures";
+			path = "Data Structures";
+			sourceTree = "<group>";
+		};
+		31615C0E5352E247B7697142B0E20D17 /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+				C8BF11F635AB22A2B3AE943A981BDC59 /* Consts */,
+				2B26DA1B03228BB382A41CD81F3DF729 /* Data Structures */,
+			);
+			name = Internals;
+			path = KWGraphTools/Classes/Internals;
+			sourceTree = "<group>";
+		};
+		69A6CDF8B02CE8413013C991ACE4B82F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				78E6D7B34E2131EDBB8146C5836460FD /* SKTileMapNodeExtension.swift */,
+			);
+			name = Extensions;
+			path = KWGraphTools/Classes/Extensions;
+			sourceTree = "<group>";
+		};
+		731770B1B11B6275B2CDA9A780E2E93E /* KWGraphTools */ = {
+			isa = PBXGroup;
+			children = (
+				69A6CDF8B02CE8413013C991ACE4B82F /* Extensions */,
+				7638090A3C0DF73243A7D53247D18B01 /* Grid Graph */,
+				31615C0E5352E247B7697142B0E20D17 /* Internals */,
+				B5E7DECA959FDA74A226D89D91A7ED1C /* Pod */,
+				DC83C1B267026C7347CBD9F11EA82893 /* Support Files */,
+			);
+			name = KWGraphTools;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7638090A3C0DF73243A7D53247D18B01 /* Grid Graph */ = {
+			isa = PBXGroup;
+			children = (
+				7446594712DBF24ABF3F9EF737291E37 /* KWGridGraph.swift */,
+				F6CDF0B943EF5EFC84739C652ECF5218 /* KWGridGraphNode.swift */,
+				A090FBA307AFCB4BF565B97725416465 /* Pathfind */,
+			);
+			name = "Grid Graph";
+			path = "KWGraphTools/Classes/Grid Graph";
+			sourceTree = "<group>";
+		};
+		7B6D727D415AA44FFB353C68DF4411EC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				28703C44BF44A38DCB7AB393B67A2312 /* Pods-KWGraphTools_Example */,
+				EEF36601D9C6569187E8CABADBE3E8A2 /* Pods-KWGraphTools_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				DB00DACA6652C119D6F1B3DCE47774E2 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				CFC94A28ADB3C769DD38544F707156C9 /* Products */,
+				7B6D727D415AA44FFB353C68DF4411EC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A090FBA307AFCB4BF565B97725416465 /* Pathfind */ = {
+			isa = PBXGroup;
+			children = (
+				1A3A5989FFCE1FB6F4573D71DC544A1C /* Dijkstra */,
+			);
+			name = Pathfind;
+			path = Pathfind;
+			sourceTree = "<group>";
+		};
+		B5E7DECA959FDA74A226D89D91A7ED1C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				9E3CFD6012AA3D044335EE5A6CC6CD8C /* KWGraphTools.podspec */,
+				C5508549552BD12F6046C85B52ECF26F /* LICENSE */,
+				9F9E37AC2296A001B5BC106D45B0B5BB /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8BF11F635AB22A2B3AE943A981BDC59 /* Consts */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC2F1AB1C4941B4AFB3AAD5F27434C /* KWConsts.swift */,
+			);
+			name = Consts;
+			path = Consts;
+			sourceTree = "<group>";
+		};
+		CFC94A28ADB3C769DD38544F707156C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13309BA12106E60BF83ABB8DCAB8CF82 /* KWGraphTools.framework */,
+				1717FFF8E84EE656D84E6577793375C0 /* Pods_KWGraphTools_Example.framework */,
+				57AA35C4218988FE2CDC7A1CD06FD6B3 /* Pods_KWGraphTools_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DB00DACA6652C119D6F1B3DCE47774E2 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				731770B1B11B6275B2CDA9A780E2E93E /* KWGraphTools */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		DC83C1B267026C7347CBD9F11EA82893 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C92984338ED727BE26470D27563BD8BB /* Info.plist */,
+				0902A98DD6F8CDD00120A129B0813D55 /* KWGraphTools.modulemap */,
+				FB0528E784B6D79CD947623B2A35C5B7 /* KWGraphTools.xcconfig */,
+				7FA7B3BDD591BECB09AF0F2078E44215 /* KWGraphTools-dummy.m */,
+				5AABA410EB372C31855423F1562C162D /* KWGraphTools-prefix.pch */,
+				DD6298F9BE5474D052B6E65A30EA6B49 /* KWGraphTools-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/KWGraphTools";
+			sourceTree = "<group>";
+		};
+		EEF36601D9C6569187E8CABADBE3E8A2 /* Pods-KWGraphTools_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0265F171C5316ADA5F8F8062621BAE7A /* Info.plist */,
+				71BB465BE3D2B4068E1F1B362C8A0AFA /* Pods-KWGraphTools_Tests.modulemap */,
+				FF03F43A6AF60C0E4E4100ACF517417B /* Pods-KWGraphTools_Tests-acknowledgements.markdown */,
+				9377DD19281283A25D4E8A35BC8C1D92 /* Pods-KWGraphTools_Tests-acknowledgements.plist */,
+				894D54256DF97CF8B7F4BB4EC6DC2854 /* Pods-KWGraphTools_Tests-dummy.m */,
+				B24DBD103EF3574E4AAD8C101ABA54B8 /* Pods-KWGraphTools_Tests-frameworks.sh */,
+				2A9CF93F06E000B1B2BF55B3B39FF8B2 /* Pods-KWGraphTools_Tests-resources.sh */,
+				FC24226F266A9168C209161CDA2D0ACA /* Pods-KWGraphTools_Tests-umbrella.h */,
+				052BAF992AD777F47A92A72A57C9F6D3 /* Pods-KWGraphTools_Tests.debug.xcconfig */,
+				6B9E94E75DDB675B67DAF5576DC7AB91 /* Pods-KWGraphTools_Tests.labeled.xcconfig */,
+				800A75FDFD5074EF64B90428E0775ADE /* Pods-KWGraphTools_Tests.release.xcconfig */,
+			);
+			name = "Pods-KWGraphTools_Tests";
+			path = "Target Support Files/Pods-KWGraphTools_Tests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5CE3266E87CAF9ACC65CB608CA161E3D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				118FC31C770685035228EAD30819B1AF /* Pods-KWGraphTools_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8437230FFE31E226960E12EB1E50DFFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80D899C1C7E305B74AFD13725E57B5CB /* Pods-KWGraphTools_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5D1D0FA08F9A095F6D561D01384671B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CF5F16CF5EEF6E634EAB6A9904B6802 /* KWGraphTools-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2F113D46B876B78B8D92D97D7BB49E7C /* KWGraphTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 577AF91B26A149D2497B7E5D695F8BD9 /* Build configuration list for PBXNativeTarget "KWGraphTools" */;
+			buildPhases = (
+				02F8DB5A45868D9EB7E9EB045833EB1E /* Sources */,
+				D5A000999844626835CDFAE3559B3131 /* Frameworks */,
+				B5D1D0FA08F9A095F6D561D01384671B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KWGraphTools;
+			productName = KWGraphTools;
+			productReference = 13309BA12106E60BF83ABB8DCAB8CF82 /* KWGraphTools.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		742B18F9FCC7CBC4E522BFFA06C86C4B /* Pods-KWGraphTools_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CFCB39CB1FA7CDDA5ECDECC122DCFDF /* Build configuration list for PBXNativeTarget "Pods-KWGraphTools_Tests" */;
+			buildPhases = (
+				EE82492CE4C80186ACA9E64350CBD859 /* Sources */,
+				89BCAA2F3B75D260DCDD3DF7F778508A /* Frameworks */,
+				8437230FFE31E226960E12EB1E50DFFB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				394BBC477C42FBE9771AD32C02C255CE /* PBXTargetDependency */,
+			);
+			name = "Pods-KWGraphTools_Tests";
+			productName = "Pods-KWGraphTools_Tests";
+			productReference = 57AA35C4218988FE2CDC7A1CD06FD6B3 /* Pods_KWGraphTools_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9BAAD13444831F2C44586456103DABF4 /* Pods-KWGraphTools_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 015D40606074E25AEA3C5C9208FD6313 /* Build configuration list for PBXNativeTarget "Pods-KWGraphTools_Example" */;
+			buildPhases = (
+				68562D020A4DE3A59F89C26E6E349B5E /* Sources */,
+				9914AAB1C77144A983E18CFDB075CDCC /* Frameworks */,
+				5CE3266E87CAF9ACC65CB608CA161E3D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8731CA57C2FA172D4C5D2A1AA07EB7A /* PBXTargetDependency */,
+			);
+			name = "Pods-KWGraphTools_Example";
+			productName = "Pods-KWGraphTools_Example";
+			productReference = 1717FFF8E84EE656D84E6577793375C0 /* Pods_KWGraphTools_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CFC94A28ADB3C769DD38544F707156C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F113D46B876B78B8D92D97D7BB49E7C /* KWGraphTools */,
+				9BAAD13444831F2C44586456103DABF4 /* Pods-KWGraphTools_Example */,
+				742B18F9FCC7CBC4E522BFFA06C86C4B /* Pods-KWGraphTools_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02F8DB5A45868D9EB7E9EB045833EB1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E14CAC736DDB591F2FBA1C6318C7591C /* HeapTree.swift in Sources */,
+				9E4105AFDF79D714B92F82AAFC1207BF /* KWConsts.swift in Sources */,
+				7D62C2951370A95D64C6C96A45B08E23 /* KWDjikstraPathfind.swift in Sources */,
+				DDB1DA20E3B155F56F3020DC644A1867 /* KWGraphTools-dummy.m in Sources */,
+				7AC3EBB68C92B6CFB116D77AF29367B5 /* KWGridGraph.swift in Sources */,
+				4A54367084EFA4E778BE1B40C4EDC78E /* KWGridGraphNode.swift in Sources */,
+				F2F31393A7A6932C3E69A93F5E00123C /* PriorityQueue.swift in Sources */,
+				046CA7F19D6A7B994F1F17F0F0412AA6 /* SKTileMapNodeExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68562D020A4DE3A59F89C26E6E349B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5360DA4327A44691032C435A163A6B56 /* Pods-KWGraphTools_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE82492CE4C80186ACA9E64350CBD859 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81B52B1B650DE536E272750AA7A82D66 /* Pods-KWGraphTools_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		394BBC477C42FBE9771AD32C02C255CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-KWGraphTools_Example";
+			target = 9BAAD13444831F2C44586456103DABF4 /* Pods-KWGraphTools_Example */;
+			targetProxy = 8068B5C8CBA5CD66484628A8F3465FA2 /* PBXContainerItemProxy */;
+		};
+		E8731CA57C2FA172D4C5D2A1AA07EB7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KWGraphTools;
+			target = 2F113D46B876B78B8D92D97D7BB49E7C /* KWGraphTools */;
+			targetProxy = 88CDD2015DA248E22E7AA951B483EBB1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D14DF5489D9AA5A7C010B303BF53C68 /* Labeled */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB0528E784B6D79CD947623B2A35C5B7 /* KWGraphTools.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KWGraphTools/KWGraphTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KWGraphTools/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KWGraphTools/KWGraphTools.modulemap";
+				PRODUCT_MODULE_NAME = KWGraphTools;
+				PRODUCT_NAME = KWGraphTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Labeled;
+		};
+		2221F8C0652063315BAA4BA1998C42DD /* Labeled */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_LABELED=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Labeled;
+		};
+		553022A828EE1991F07D2D73F565AEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		569C59FF968DF53A7E2557A87BD02AF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B29CBA01D36C361C775EA65D07B5E251 /* Pods-KWGraphTools_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KWGraphTools_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KWGraphTools_Example/Pods-KWGraphTools_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		58CE816B060A41D32CEC095441D0E3E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		5C6CD4517ED95C5DB321099CD378385E /* Labeled */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2790FE9DC551ACA48724C20DA000C1AA /* Pods-KWGraphTools_Example.labeled.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KWGraphTools_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KWGraphTools_Example/Pods-KWGraphTools_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Labeled;
+		};
+		6968D3349342CD27FD799D31B06A344C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB0528E784B6D79CD947623B2A35C5B7 /* KWGraphTools.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KWGraphTools/KWGraphTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KWGraphTools/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KWGraphTools/KWGraphTools.modulemap";
+				PRODUCT_MODULE_NAME = KWGraphTools;
+				PRODUCT_NAME = KWGraphTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		71CC7CF6101BF859BB5818DD4C960FBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44FEA56129F5EDA3EDFAAE5FF06B1547 /* Pods-KWGraphTools_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KWGraphTools_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KWGraphTools_Example/Pods-KWGraphTools_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		982641ED6BF154DC0C95EC1B7E798F1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 052BAF992AD777F47A92A72A57C9F6D3 /* Pods-KWGraphTools_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KWGraphTools_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KWGraphTools_Tests/Pods-KWGraphTools_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A47E7738A4EF71E460E58BD5B809B0B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB0528E784B6D79CD947623B2A35C5B7 /* KWGraphTools.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KWGraphTools/KWGraphTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KWGraphTools/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KWGraphTools/KWGraphTools.modulemap";
+				PRODUCT_MODULE_NAME = KWGraphTools;
+				PRODUCT_NAME = KWGraphTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D4A64B5CA5E7925E195CF6363CB27832 /* Labeled */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B9E94E75DDB675B67DAF5576DC7AB91 /* Pods-KWGraphTools_Tests.labeled.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KWGraphTools_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KWGraphTools_Tests/Pods-KWGraphTools_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Labeled;
+		};
+		D54499C287DA8AFB21BA6001435902F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 800A75FDFD5074EF64B90428E0775ADE /* Pods-KWGraphTools_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KWGraphTools_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KWGraphTools_Tests/Pods-KWGraphTools_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		015D40606074E25AEA3C5C9208FD6313 /* Build configuration list for PBXNativeTarget "Pods-KWGraphTools_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71CC7CF6101BF859BB5818DD4C960FBA /* Debug */,
+				5C6CD4517ED95C5DB321099CD378385E /* Labeled */,
+				569C59FF968DF53A7E2557A87BD02AF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553022A828EE1991F07D2D73F565AEF8 /* Debug */,
+				2221F8C0652063315BAA4BA1998C42DD /* Labeled */,
+				58CE816B060A41D32CEC095441D0E3E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		577AF91B26A149D2497B7E5D695F8BD9 /* Build configuration list for PBXNativeTarget "KWGraphTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6968D3349342CD27FD799D31B06A344C /* Debug */,
+				1D14DF5489D9AA5A7C010B303BF53C68 /* Labeled */,
+				A47E7738A4EF71E460E58BD5B809B0B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CFCB39CB1FA7CDDA5ECDECC122DCFDF /* Build configuration list for PBXNativeTarget "Pods-KWGraphTools_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				982641ED6BF154DC0C95EC1B7E798F1E /* Debug */,
+				D4A64B5CA5E7925E195CF6363CB27832 /* Labeled */,
+				D54499C287DA8AFB21BA6001435902F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
