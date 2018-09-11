@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'KWGraphTools_Example' do
+  pod 'KWGraphTools', :path => '../'
+
+  target 'KWGraphTools_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
