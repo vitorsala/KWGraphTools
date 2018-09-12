@@ -30,7 +30,7 @@ This pod implements a djikstra's pathfinding algorithm optimized to SKTileMapNod
 
   s.ios.deployment_target = '10.0'
   s.source_files = 'KWGraphTools/Classes/**/*'
-  
+  s.swift_version = '4.0'
   # s.resource_bundles = {
   #   'KWGraphTools' => ['KWGraphTools/Assets/*.png']
   # }
