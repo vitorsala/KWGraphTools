@@ -1,6 +1,6 @@
 # KWGraphTools
 
-[![CI Status](https://img.shields.io/travis/Vitor Kawai Sala/KWGraphTools.svg?style=flat)](https://travis-ci.org/vitorsala/KWGraphTools)
+[![CI Status](https://img.shields.io/travis/vitorsala/KWGraphTools.svg?style=flat)](https://travis-ci.org/vitorsala/KWGraphTools)
 [![Version](https://img.shields.io/cocoapods/v/KWGraphTools.svg?style=flat)](https://cocoapods.org/pods/KWGraphTools)
 [![License](https://img.shields.io/cocoapods/l/KWGraphTools.svg?style=flat)](https://cocoapods.org/pods/KWGraphTools)
 [![Platform](https://img.shields.io/cocoapods/p/KWGraphTools.svg?style=flat)](https://cocoapods.org/pods/KWGraphTools)
