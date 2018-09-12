@@ -7,38 +7,27 @@
 
 import Foundation
 
-/// Struct representing an queue element. This struct is used to associate an element with its priority
-private struct QueueElement<T> {
-    var priority : Float
-    var element : T
-    
-    init(element : T, priority : Float){
-        self.priority = priority
-        self.element = element
-    }
-}
-
-extension QueueElement: Comparable {
-    static func <(lhs: QueueElement, rhs: QueueElement) -> Bool {
-        return lhs.priority < rhs.priority
-    }
-    
-    static func >(lhs: QueueElement, rhs: QueueElement) -> Bool {
-        return lhs.priority > rhs.priority
-    }
-    
-    static func ==(lhs: QueueElement, rhs: QueueElement) -> Bool {
-        return lhs.priority == rhs.priority
-    }
-}
-
 // MARK :- Priority Queue
 /// Priority queue to be used with Djikstra Algorithm
-internal class PriorityQueue<T> {
-    private let heap = HeapTree<QueueElement<T>>(type: HeapType.minHeap)
+internal class PriorityQueue<T: Comparable> {
     
-    internal var isEmpty: Bool {
-        return self.heap.isEmpty
+    /// The array storing the Heap Tree
+    private var tree: [T] = []
+    
+    // MARK: Tree's status
+    /// Return the number of elements in the tree
+    var count: Int {
+        return tree.count
+    }
+    
+    /// Return if the tree is empty
+    var isEmpty: Bool {
+        return tree.isEmpty
+    }
+    
+    /// Return the root element of the tree.
+    internal var root: T? {
+        return tree.first
     }
     
     /// Initialize an empty queue
@@ -51,18 +40,19 @@ internal class PriorityQueue<T> {
     ///   - array: An array containing all elements to be included to the queue.
     ///   - priorities: An array containing all priorities associated with element's array
     /// - Throws: An *PriorityQueueError* if the element's array size does not match with the priorities array size
-    internal init(withArray array: [T], andPriorityArray priorities: [Float]) throws {
-        guard array.count == priorities.count else {
-            throw PriorityQueueError.sizesDoesNotMatch(arraySize: array.count, prioritySize: priorities.count)
-        }
-        for i in 0..<array.count {
-            self.enqueue(element: array[i], withPriority: priorities[i])
+    internal init(withArray array: [T]) throws {
+        for elem in array {
+            self.enqueue(elem)
         }
     }
     
     #if DEBUG
-    internal func print() {
-        self.heap.printTree()
+    /// MARK: - Convenience functions
+    /// Print current tree
+    func printTree() {
+        self.tree.forEach {
+            print("\($0) ", separator: "", terminator: "")
+        }
     }
     #endif
 }
@@ -73,22 +63,101 @@ extension PriorityQueue {
     /// - Parameters:
     ///   - element: element to be enqueued
     ///   - withPriority: the element priority in the queue
-    internal func enqueue(element: T, withPriority: Float){
-        heap.insert(element: QueueElement<T>(element: element, priority: withPriority))
+    internal func enqueue(_ element: T){
+        self.tree.append(element)
+        self.heapifyUp(fromIndex: self.count - 1)
     }
     
     /// dequeue an element
     ///
     /// - Returns: The first element in the queue
     internal func dequeue() -> T? {
-        return heap.remove(elementAtIndex: 0)?.element
+        guard !self.isEmpty, let lastElem = self.tree.last else { return nil }
+        let ret = tree[0]
+        tree[0] = lastElem
+        let _ = tree.popLast()
+        if !self.isEmpty {
+            heapifyDown(fromIndex: 0)
+        }
+        return ret
+    }
+}
+
+// MARK: Internal Functions
+// MARK: Construction & Maintenance
+extension PriorityQueue {
+    /// Normalize heap tree from bottom-up
+    ///
+    /// - Parameter startingIndex: index of the first element to be normalized.
+    private func heapifyUp(fromIndex startingIndex: Int) {
+        guard startingIndex > 0 else { return }
+        
+        var i = startingIndex
+        var parent = self.parent(ofIndex: i)
+        
+        while(i > 0 && tree[i] < tree[parent]) {
+            self.tree.swapAt(i, parent)
+            i = parent
+            parent = self.parent(ofIndex: i)
+        }
     }
     
-    /// Get the first element without dequeueing.
+    /// Normalize heap tree from top-down
     ///
-    /// - Returns: The first element in the queue
-    internal func peek() -> T? {
-        return heap.root?.element
+    /// - Parameter startingIndex: index of the first element to be normalized.
+    private func heapifyDown(fromIndex startingIndex: Int) {
+        var i = startingIndex
+        
+        while let sel = self.chooseBetweenChildrens(ofIndex: i) {
+            if tree[sel] < tree[i] {
+                self.tree.swapAt(sel, i)
+                i = sel
+            }
+            else {
+                return
+            }
+        }
+    }
+    
+    /// Select child using the `comparator` passed through `init`
+    ///
+    /// - Parameter i: parent's index
+    /// - Returns: selected child's index or nil if the parent have no child
+    private func chooseBetweenChildrens(ofIndex i: Int) -> Int? {
+        let left = self.leftChild(ofIndex: i)
+        let right = left + 1
+        
+        if left >= self.count {
+            return nil
+        }
+        else if right >= self.count {
+            return left
+        }
+        return (tree[left] < tree[right] ? left : right)
+    }
+    
+    /// Build heap
+    private func buildHeap() {
+        guard self.count >= 0 else { return }
+        
+        for i in stride(from: (self.count >> 1) - 1, to: -1, by: -1) {
+            heapifyDown(fromIndex: i)
+        }
+    }
+}
+
+// MARK: Index access
+extension PriorityQueue {
+    private func parent(ofIndex i: Int) -> Int {
+        return Int(i - 1) >> 1
+    }
+    
+    private func leftChild(ofIndex i: Int) -> Int {
+        return (i << 1) | 1
+    }
+    
+    private func rightChild(ofIndex i: Int) -> Int {
+        return self.leftChild(ofIndex: i) + 1
     }
 }
 

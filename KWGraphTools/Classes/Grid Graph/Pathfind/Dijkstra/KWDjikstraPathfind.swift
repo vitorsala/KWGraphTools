@@ -24,15 +24,16 @@ public class KWDjikstraPathfind {
     }
     
     public func findPath(inGrid grid: KWGridGraph, from position: vector_int2) -> [vector_int2] {
-        guard var node = grid.node(atGridPosition: position), node.accumulatedCost < gridGraphCostNotInitialized else { return [] }
+        guard var node = grid.node(atGridPosition: position), self.visited.contains(node) else { return [] }
         guard node.accumulatedCost > 0 else { return [node.gridPosition] }
         let capacity: Int = (grid.nodes?.count ?? 0) >> 1
         let upath = UnsafeMutablePointer<vector_int2>.allocate(capacity: capacity)
-        var count = 0
+        upath[0] = node.gridPosition
+        var count = 1
         repeat {
+            node = node.neighbourNodes.min(by: { n1, n2 in n1.accumulatedCost < n2.accumulatedCost })!
             upath[count] = node.gridPosition
             count += 1
-            node = node.neighbourNodes.min(by: { n1, n2 in n1.accumulatedCost < n2.accumulatedCost })!
         } while node.accumulatedCost > 0
         let path = Array(UnsafeBufferPointer(start: upath, count: count))
         upath.deallocate()
@@ -47,20 +48,14 @@ public class KWDjikstraPathfind {
 
 extension KWDjikstraPathfind {
     private func updateNodeCosts(startingFromNode node: KWGridGraphNode) {
-        
         let frontier: PriorityQueue<KWGridGraphNode> = PriorityQueue()
         self.visited.insert(node)
-        frontier.enqueue(element: node, withPriority: node.accumulatedCost)
-        self.updateNodeCosts(startingWithFrontier: frontier)
-    }
-    
-    private func updateNodeCosts(startingWithFrontier frontier: PriorityQueue<KWGridGraphNode>) {
-        
+        frontier.enqueue(node)
         while let currentNode: KWGridGraphNode = frontier.dequeue() {
             for connectedNode in currentNode.neighbourNodes where !self.visited.contains(connectedNode) {
                 connectedNode.accumulatedCost = currentNode.accumulatedCost + currentNode.cost(to: connectedNode)
                 self.visited.insert(connectedNode)
-                frontier.enqueue(element: connectedNode, withPriority: connectedNode.accumulatedCost)
+                frontier.enqueue(connectedNode)
             }
         }
     }

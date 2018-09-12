@@ -17,11 +17,9 @@
 		7D62C2951370A95D64C6C96A45B08E23 /* KWDjikstraPathfind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */; };
 		80D899C1C7E305B74AFD13725E57B5CB /* Pods-KWGraphTools_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC24226F266A9168C209161CDA2D0ACA /* Pods-KWGraphTools_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81B52B1B650DE536E272750AA7A82D66 /* Pods-KWGraphTools_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894D54256DF97CF8B7F4BB4EC6DC2854 /* Pods-KWGraphTools_Tests-dummy.m */; };
-		9E4105AFDF79D714B92F82AAFC1207BF /* KWConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC2F1AB1C4941B4AFB3AAD5F27434C /* KWConsts.swift */; };
 		DBCC853F46E49D92824C76B8F17DCF22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		DDB1DA20E3B155F56F3020DC644A1867 /* KWGraphTools-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA7B3BDD591BECB09AF0F2078E44215 /* KWGraphTools-dummy.m */; };
 		DF49FEFC390250CC61CB2166D75A4FC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		E14CAC736DDB591F2FBA1C6318C7591C /* HeapTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B9CDB0EB8C570B87C203166DCDD33 /* HeapTree.swift */; };
 		F2F31393A7A6932C3E69A93F5E00123C /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606FB3A63A89B0D4DB8DDCC8DDBA341 /* PriorityQueue.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,15 +44,15 @@
 		0265F171C5316ADA5F8F8062621BAE7A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		052BAF992AD777F47A92A72A57C9F6D3 /* Pods-KWGraphTools_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0902A98DD6F8CDD00120A129B0813D55 /* KWGraphTools.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KWGraphTools.modulemap; sourceTree = "<group>"; };
-		13309BA12106E60BF83ABB8DCAB8CF82 /* KWGraphTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KWGraphTools.framework; path = KWGraphTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1717FFF8E84EE656D84E6577793375C0 /* Pods_KWGraphTools_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KWGraphTools_Example.framework; path = "Pods-KWGraphTools_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13309BA12106E60BF83ABB8DCAB8CF82 /* KWGraphTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KWGraphTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1717FFF8E84EE656D84E6577793375C0 /* Pods_KWGraphTools_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KWGraphTools_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E1BB6DE884CA1DE80A49FCF175658D8 /* Pods-KWGraphTools_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KWGraphTools_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2790FE9DC551ACA48724C20DA000C1AA /* Pods-KWGraphTools_Example.labeled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Example.labeled.xcconfig"; sourceTree = "<group>"; };
 		2A9CF93F06E000B1B2BF55B3B39FF8B2 /* Pods-KWGraphTools_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KWGraphTools_Tests-resources.sh"; sourceTree = "<group>"; };
 		3606FB3A63A89B0D4DB8DDCC8DDBA341 /* PriorityQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
 		44FEA56129F5EDA3EDFAAE5FF06B1547 /* Pods-KWGraphTools_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4F298DED087D8C37BCC2871AD0ECB501 /* Pods-KWGraphTools_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KWGraphTools_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		57AA35C4218988FE2CDC7A1CD06FD6B3 /* Pods_KWGraphTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KWGraphTools_Tests.framework; path = "Pods-KWGraphTools_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		57AA35C4218988FE2CDC7A1CD06FD6B3 /* Pods_KWGraphTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KWGraphTools_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AABA410EB372C31855423F1562C162D /* KWGraphTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KWGraphTools-prefix.pch"; sourceTree = "<group>"; };
 		6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWDjikstraPathfind.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -69,18 +67,16 @@
 		82DC2485B63514C9FE59029BCEB19FE7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		894D54256DF97CF8B7F4BB4EC6DC2854 /* Pods-KWGraphTools_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KWGraphTools_Tests-dummy.m"; sourceTree = "<group>"; };
 		9377DD19281283A25D4E8A35BC8C1D92 /* Pods-KWGraphTools_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KWGraphTools_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		965B9CDB0EB8C570B87C203166DCDD33 /* HeapTree.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeapTree.swift; sourceTree = "<group>"; };
-		9E3CFD6012AA3D044335EE5A6CC6CD8C /* KWGraphTools.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = KWGraphTools.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F9E37AC2296A001B5BC106D45B0B5BB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E3CFD6012AA3D044335EE5A6CC6CD8C /* KWGraphTools.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = KWGraphTools.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F9E37AC2296A001B5BC106D45B0B5BB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B24DBD103EF3574E4AAD8C101ABA54B8 /* Pods-KWGraphTools_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KWGraphTools_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		B29CBA01D36C361C775EA65D07B5E251 /* Pods-KWGraphTools_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C1B04C6DB25F361B9E70CF42FC9871CF /* Pods-KWGraphTools_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KWGraphTools_Example.modulemap"; sourceTree = "<group>"; };
-		C5508549552BD12F6046C85B52ECF26F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		C5508549552BD12F6046C85B52ECF26F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C92984338ED727BE26470D27563BD8BB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99872A7AB112DB420E708805484C1C8 /* Pods-KWGraphTools_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KWGraphTools_Example-dummy.m"; sourceTree = "<group>"; };
 		CCBA7C451C6EF389C1F93F42771B32E7 /* Pods-KWGraphTools_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KWGraphTools_Example-frameworks.sh"; sourceTree = "<group>"; };
-		CEAC2F1AB1C4941B4AFB3AAD5F27434C /* KWConsts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWConsts.swift; sourceTree = "<group>"; };
 		DD6298F9BE5474D052B6E65A30EA6B49 /* KWGraphTools-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KWGraphTools-umbrella.h"; sourceTree = "<group>"; };
 		F6CDF0B943EF5EFC84739C652ECF5218 /* KWGridGraphNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWGridGraphNode.swift; sourceTree = "<group>"; };
 		FB0528E784B6D79CD947623B2A35C5B7 /* KWGraphTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KWGraphTools.xcconfig; sourceTree = "<group>"; };
@@ -121,7 +117,6 @@
 			children = (
 				6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */,
 			);
-			name = Dijkstra;
 			path = Dijkstra;
 			sourceTree = "<group>";
 		};
@@ -147,17 +142,14 @@
 		2B26DA1B03228BB382A41CD81F3DF729 /* Data Structures */ = {
 			isa = PBXGroup;
 			children = (
-				965B9CDB0EB8C570B87C203166DCDD33 /* HeapTree.swift */,
 				3606FB3A63A89B0D4DB8DDCC8DDBA341 /* PriorityQueue.swift */,
 			);
-			name = "Data Structures";
 			path = "Data Structures";
 			sourceTree = "<group>";
 		};
 		31615C0E5352E247B7697142B0E20D17 /* Internals */ = {
 			isa = PBXGroup;
 			children = (
-				C8BF11F635AB22A2B3AE943A981BDC59 /* Consts */,
 				2B26DA1B03228BB382A41CD81F3DF729 /* Data Structures */,
 			);
 			name = Internals;
@@ -222,7 +214,6 @@
 			children = (
 				1A3A5989FFCE1FB6F4573D71DC544A1C /* Dijkstra */,
 			);
-			name = Pathfind;
 			path = Pathfind;
 			sourceTree = "<group>";
 		};
@@ -242,15 +233,6 @@
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C8BF11F635AB22A2B3AE943A981BDC59 /* Consts */ = {
-			isa = PBXGroup;
-			children = (
-				CEAC2F1AB1C4941B4AFB3AAD5F27434C /* KWConsts.swift */,
-			);
-			name = Consts;
-			path = Consts;
 			sourceTree = "<group>";
 		};
 		CFC94A28ADB3C769DD38544F707156C9 /* Products */ = {
@@ -428,8 +410,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E14CAC736DDB591F2FBA1C6318C7591C /* HeapTree.swift in Sources */,
-				9E4105AFDF79D714B92F82AAFC1207BF /* KWConsts.swift in Sources */,
 				7D62C2951370A95D64C6C96A45B08E23 /* KWDjikstraPathfind.swift in Sources */,
 				DDB1DA20E3B155F56F3020DC644A1867 /* KWGraphTools-dummy.m in Sources */,
 				7AC3EBB68C92B6CFB116D77AF29367B5 /* KWGridGraph.swift in Sources */,

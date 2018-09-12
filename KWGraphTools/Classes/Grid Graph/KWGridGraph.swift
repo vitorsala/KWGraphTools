@@ -70,8 +70,6 @@ extension KWGridGraph {
     public func haveValidPath(from point: vector_int2) -> Bool {
         return self.pathfind.haveValidPath(inGrid: self, from: point)
     }
-    
-    
 }
 
 extension KWGridGraph {

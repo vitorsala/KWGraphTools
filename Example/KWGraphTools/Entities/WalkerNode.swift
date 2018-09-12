@@ -42,7 +42,7 @@ final class WalkerNode: SKShapeNode {
 
 extension WalkerNode: Poolable {
     static func generateNewNode() -> WalkerNode {
-        let node = WalkerNode(circleOfRadius: 10)
+        let node = WalkerNode(circleOfRadius: 20)
         node.strokeColor = .black
         node.fillColor = .yellow
         node.lineWidth = 2

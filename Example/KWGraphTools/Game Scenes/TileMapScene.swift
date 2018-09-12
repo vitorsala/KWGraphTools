@@ -45,10 +45,11 @@ final class TileMapScene: SKScene {
     private var buttons: [Button] = []
     private var selectedAction: SelectedAction = .none
     private var poolingSystem: PoolingSystem<WalkerNode> = PoolingSystem()
-    private var spawnInterval: TimeInterval = 20
+    private var spawnInterval: TimeInterval = 0.2
     private var elapsedTimeSinceSpawn: TimeInterval = 0
     private var lastUpdate: TimeInterval = 0
     private var state: SceneState = .stopped
+    private var randomGenerator: GKRandom = GKRandomSource()
     
     private lazy var tmFloor: SKTileMapNode = {
         let node: SKTileMapNode = self.childNode(named: TileMapSceneNodeName.Floor) as! SKTileMapNode
@@ -82,7 +83,7 @@ final class TileMapScene: SKScene {
         self.elapsedTimeSinceSpawn += delta
         if self.elapsedTimeSinceSpawn > self.spawnInterval {
             self.elapsedTimeSinceSpawn = 0
-            self.summonAgents()
+            self.summonSingleRandomAgent()
         }
     }
     
@@ -187,6 +188,27 @@ extension TileMapScene {
 }
 
 extension TileMapScene {
+    
+    private func summonSingleRandomAgent() {
+        guard let graph = self.graph else { return }
+        var x: Int = 0
+        var y: Int = 0
+        repeat {
+            x = self.randomGenerator.nextInt(upperBound: self.tmFloor.numberOfColumns)
+            y = self.randomGenerator.nextInt(upperBound: self.tmFloor.numberOfRows)
+        } while !graph.haveValidPath(from: vector_int2(Int32(x), Int32(y))) || !self.isPlaceable(location: GridPoint(x: x, y: y))
+        
+        let node = self.poolingSystem.pop()
+        node.zPosition = NodeZPosition.agents.rawValue
+        node.gridPoint = GridPoint(x: x, y: y)
+        self.tmProps.addChild(node)
+        node.position = self.tmProps.centerOfTile(atColumn: x, row: y)
+        node.followPath(gridGraph: graph) {
+            node.removeAllActions()
+            self.poolingSystem.push(node: node)
+        }
+    }
+    
     private func summonAgents() {
         guard let graph = self.graph else { return }
         for y in 0..<self.tmFloor.numberOfRows {
