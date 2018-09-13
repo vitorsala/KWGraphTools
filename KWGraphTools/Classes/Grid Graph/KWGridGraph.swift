@@ -7,8 +7,9 @@
 
 import GameplayKit
 
+/// Grid Graph class for Djikstra algorithm
 open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
-    private(set) var pathfind: KWDjikstraPathfind = KWDjikstraPathfind()
+    private var pathfind: KWDjikstraPathfind = KWDjikstraPathfind()
     private var targetPoint: vector_int2 = vector_int2(x:0, y: 0)
     
     /// Generate obstacles given an obstacle tile map.
@@ -38,6 +39,9 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
         }
     }
     
+    /// Add an obstacle (removing graph node) at given location
+    ///
+    /// - Parameter point: point with coordinates of grid node that should be removed
     open func addObstacle(atGridPosition point: vector_int2) {
         guard let node = self.node(atGridPosition: point) else { return }
         self.remove([node])
@@ -46,6 +50,9 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
         }
     }
     
+    /// Remove an obstacle (by adding an graph node) at given location
+    ///
+    /// - Parameter point: point with coordinates of grid node that should be added
     open func removeObstacle(atGridPosition point: vector_int2) {
         guard self.node(atGridPosition: point) == nil else { return }
         let node = KWGridGraphNode(gridPosition: point)
@@ -57,16 +64,32 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
 }
 
 extension KWGridGraph {
+    /// Generate node cost for all nodes, in grid, to a given target.
+    ///
+    /// - Parameter point: **vector_int2** containing node that all paths should lead to.
     public func generatePaths(convergingToPoint point: vector_int2) {
         self.pathfind.generatePaths(forGrid: self, convergingToPoint: point)
         self.targetPoint = point
     }
     
+    /// Calculate an path from given point to converging point.
+    ///
+    /// This method works only if the graph was previously generated with
+    /// ```
+    /// generatePaths(convergingToPoint: vector_int2)
+    /// ```
+    /// - Parameter startNode: **vector_int2** the starting point where path will start from.
+    /// - Returns: **[vector_int2]** containing every grid point the shortest path
     public func findPath(from startNode: vector_int2) -> [vector_int2] {
         let path = self.pathfind.findPath(inGrid: self, from: startNode)
         return path
     }
     
+    /// Return if the given node have an valid path to target.
+    ///
+    /// This method will return **false** if `generatePaths(convergingToPoint:)` was not called prior this method.
+    /// - Parameter point: **vector_int2** origin point where path will start.
+    /// - Returns: **Bool** indicating if the given point have a valid path to target.
     public func haveValidPath(from point: vector_int2) -> Bool {
         return self.pathfind.haveValidPath(inGrid: self, from: point)
     }
