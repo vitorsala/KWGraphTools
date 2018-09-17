@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KWGraphTools'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A simple pathfinding integration with SpriteKit and GameplayKit.'
 
 # This description is used to generate tags and improve search results.
@@ -36,6 +36,6 @@ This pod implements a djikstra's pathfinding algorithm optimized to SKTileMapNod
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'SpriteKit', 'GameplayKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
