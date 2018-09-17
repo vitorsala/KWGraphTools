@@ -24,7 +24,6 @@ public class KWDjikstraPathfind {
         self.pathsGenerated = true
     }
     
-    
     /// Generate an array of points containing an path from given position to the target node (cost = 0)
     ///
     /// - Parameters:
@@ -66,10 +65,13 @@ extension KWDjikstraPathfind {
         self.visited.insert(node)
         frontier.enqueue(node)
         while let currentNode: KWGridGraphNode = frontier.dequeue() {
-            for connectedNode in currentNode.neighbourNodes where !self.visited.contains(connectedNode) {
-                connectedNode.accumulatedCost = currentNode.accumulatedCost + currentNode.cost(to: connectedNode)
-                self.visited.insert(connectedNode)
-                frontier.enqueue(connectedNode)
+            for connectedNode in currentNode.neighbourNodes {
+                let currentCost = currentNode.accumulatedCost + currentNode.cost(to: connectedNode)
+                if !self.visited.contains(connectedNode) || currentCost < connectedNode.accumulatedCost {
+                    connectedNode.accumulatedCost = currentCost
+                    self.visited.insert(connectedNode)
+                    frontier.enqueue(connectedNode)
+                }
             }
         }
     }

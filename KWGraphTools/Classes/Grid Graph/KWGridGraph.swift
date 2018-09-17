@@ -12,6 +12,19 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     private var pathfind: KWDjikstraPathfind = KWDjikstraPathfind()
     private var targetPoint: vector_int2 = vector_int2(x:0, y: 0)
     
+    /// Remove obstacles given an walkable tile map
+    ///
+    /// - Parameter tileMap: The tile map containing walkable tiles
+    open func addWalkablePoints(fromTileMap tileMap: SKTileMapNode) {
+        for y in 0..<self.gridHeight {
+            for x in 0..<self.gridWidth where tileMap.haveTile(atColumn: x, row: y) {
+                if let node: KWGridGraphNode = self.node(atGridPosition: vector_int2(x: Int32(x), y: Int32(y))) {
+                    self.connectToAdjacentNodes(node: node)
+                }
+            }
+        }
+    }
+    
     /// Generate obstacles given an obstacle tile map.
     ///
     /// - Parameter tileMap: The tile map containing obstacles.

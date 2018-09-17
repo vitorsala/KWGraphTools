@@ -10,7 +10,7 @@ import GameplayKit
 /// The Grid Graph Node for Djikstra Algorithm
 open class KWGridGraphNode: GKGridGraphNode {
     /// The node cost relative to target.
-    open var accumulatedCost: Float = Float.greatestFiniteMagnitude
+    open var accumulatedCost: Float = KWGridGraphNode.nodeNotInialized
     /// Neighbour nodes relative to this node.
     open var neighbourNodes: [KWGridGraphNode] {
         guard let nodes = self.connectedNodes as? [KWGridGraphNode] else { return [] }
@@ -20,6 +20,8 @@ open class KWGridGraphNode: GKGridGraphNode {
     open var leastAcumulatedCostNeighbour: KWGridGraphNode? {
         return self.neighbourNodes.min(by: {return $0.accumulatedCost < $1.accumulatedCost})
     }
+    
+    static internal let nodeNotInialized = Float.greatestFiniteMagnitude
 }
 
 extension KWGridGraphNode: Comparable {
