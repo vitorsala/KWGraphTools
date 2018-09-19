@@ -81,7 +81,7 @@
 		C4D7964B2148838A005EAFE8 /* TileMapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapScene.swift; sourceTree = "<group>"; };
 		C4D7964C2148838A005EAFE8 /* TopMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TopMenuScene.sks; sourceTree = "<group>"; };
 		C4D7964D2148838A005EAFE8 /* TopMenuButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuButtons.swift; sourceTree = "<group>"; };
-		C4D7966021488396005EAFE8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../KPathFinding/Example/KPathFinding/Images.xcassets; sourceTree = "<group>"; };
+		C4D7966021488396005EAFE8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CCB79594AF20EBB8EFE6DB8A /* KWGraphTools.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KWGraphTools.podspec; path = ../KWGraphTools.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
