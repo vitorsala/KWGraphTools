@@ -16,11 +16,28 @@ final class WalkerNode: SKShapeNode {
     
     func followPath(gridGraph: KWGridGraph, completion: @escaping (() -> Void)) {
         self.gridPath = gridGraph.findPath(from: vector_int2(point: self.gridPoint))
-        _ = self.gridPath.removeFirst()
         guard !gridPath.isEmpty else {
             completion()
             return
         }
+        _ = self.gridPath.removeFirst()
+        self.animate(completion: completion)
+    }
+    
+    func followGKPath(gridGraph: KWGridGraph, toPoint target: GridPoint, completion: @escaping (() -> Void)) {
+        guard let source = gridGraph.node(atGridPosition: vector_int2(point: self.gridPoint)),
+            let target = gridGraph.node(atGridPosition: vector_int2(point: target)) else {
+                completion()
+                return
+        }
+        let path = gridGraph.findPath(from: source, to: target).compactMap {
+            return $0 as? GKGridGraphNode
+        }
+        guard !path.isEmpty else {
+            completion()
+            return
+        }
+        self.gridPath = path.dropFirst().map{ $0.gridPosition }
         self.animate(completion: completion)
     }
     
@@ -31,10 +48,15 @@ final class WalkerNode: SKShapeNode {
     
     private func generateActions() -> [SKAction] {
         guard let tileMap = self.parent as? SKTileMapNode else { return [] }
-        let actions = self.gridPath.map { (node) -> SKAction in
+        var actions: [SKAction] = []
+        for node in self.gridPath {
             let destinationPoint = tileMap.centerOfTile(atColumn: Int(node.x), row: Int(node.y))
-            let action = SKAction.move(to: destinationPoint, duration: 0.5)
-            return action
+            let move = SKAction.move(to: destinationPoint, duration: 0.5)
+            let update = SKAction.run {
+                self.gridPoint = GridPoint(x: Int(node.x), y: Int(node.y))
+            }
+            actions.append(move)
+            actions.append(update)
         }
         return actions
     }

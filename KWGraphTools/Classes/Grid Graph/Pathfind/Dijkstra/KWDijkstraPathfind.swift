@@ -7,7 +7,7 @@
 
 import GameplayKit
 
-public class KWDjikstraPathfind {
+public class KWDijkstraPathfind {
     private var visited: Set<KWGridGraphNode> = Set<KWGridGraphNode>()
     private(set) var pathsGenerated: Bool = false
     
@@ -59,7 +59,7 @@ public class KWDjikstraPathfind {
     }
 }
 
-extension KWDjikstraPathfind {
+extension KWDijkstraPathfind {
     private func updateNodeCosts(startingFromNode node: KWGridGraphNode) {
         let frontier: PriorityQueue<KWGridGraphNode> = PriorityQueue()
         self.visited.insert(node)

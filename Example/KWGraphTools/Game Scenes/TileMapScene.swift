@@ -29,6 +29,11 @@ private enum SceneState {
     case stopped
 }
 
+private enum PathfindMode {
+    case dijkstra
+    case aStar
+}
+
 private enum NodeZPosition: CGFloat {
     case background = 0
     case terrain = 1
@@ -50,6 +55,7 @@ final class TileMapScene: SKScene {
     private var lastUpdate: TimeInterval = 0
     private var state: SceneState = .stopped
     private var randomGenerator: GKRandom = GKRandomSource()
+    private var currentPathfindMode: PathfindMode = .dijkstra
     
     private lazy var tmFloor: SKTileMapNode = {
         let node: SKTileMapNode = self.childNode(named: TileMapSceneNodeName.Floor) as! SKTileMapNode
@@ -110,21 +116,20 @@ final class TileMapScene: SKScene {
 extension TileMapScene {
     private func touchAction(location: GridPoint) {
         self.costLabels.forEach { $1.fontColor = UIColor.black }
-        self.clearAgents()
         switch self.selectedAction {
         case .spawnPoint:
             guard self.isPlaceable(location: location) else { return }
-            self.spawnGridPosition = location
+            self.summonAgent(at: location)
             #if LABELED
+            self.spawnGridPosition = location
             self.plotPath(from: location)
             #endif
-            
         case .targetPoint:
             self.setTarget(atLocation: location)
-            
+            self.recalculateAgentsPath()
         case .wall:
             self.setWall(atLocation: location)
-            
+            self.recalculateAgentsPath()
         default:
             return
         }
@@ -175,11 +180,6 @@ extension TileMapScene {
         }
     }
     
-    private func plotPath(from location: GridPoint) {
-        guard let path = self.graph?.findPath(from: vector_int2(x: Int32(location.x), y: Int32(location.y))) else { return }
-        let gridPoints = path.map { return GridPoint(x: Int($0.x), y: Int($0.y)) }
-        gridPoints.forEach { self.costLabels[$0]?.fontColor = UIColor.red }
-    }
     
     private func isPlaceable(location: GridPoint) -> Bool {
         return !self.tmWalls.haveTile(atColumn: location.x, row: location.y) &&
@@ -187,8 +187,8 @@ extension TileMapScene {
     }
 }
 
+// MARK: - Agent Functions
 extension TileMapScene {
-    
     private func summonSingleRandomAgent() {
         guard let graph = self.graph else { return }
         var x: Int = 0
@@ -197,35 +197,66 @@ extension TileMapScene {
             x = self.randomGenerator.nextInt(upperBound: self.tmFloor.numberOfColumns)
             y = self.randomGenerator.nextInt(upperBound: self.tmFloor.numberOfRows)
         } while !graph.haveValidPath(from: vector_int2(Int32(x), Int32(y))) || !self.isPlaceable(location: GridPoint(x: x, y: y))
-        
-        let node = self.poolingSystem.pop()
-        node.zPosition = NodeZPosition.agents.rawValue
-        node.gridPoint = GridPoint(x: x, y: y)
-        self.tmProps.addChild(node)
-        node.position = self.tmProps.centerOfTile(atColumn: x, row: y)
-        node.followPath(gridGraph: graph) {
-            node.removeAllActions()
-            self.poolingSystem.push(node: node)
-        }
+        self.summonAgent(at: GridPoint(x: x, y: y))
     }
     
     private func summonAgents() {
-        guard let graph = self.graph else { return }
+        guard let graph = self.graph, let targetPosition = self.targetGridPosition else { return }
         for y in 0..<self.tmFloor.numberOfRows {
             for x in 0..<self.tmFloor.numberOfColumns {
+                let gridPoint = GridPoint(x: x, y: y)
                 if graph.haveValidPath(from: vector_int2(Int32(x), Int32(y))),
-                    self.isPlaceable(location: GridPoint(x: x, y: y)) {
-                    
-                    let node = self.poolingSystem.pop()
-                    node.zPosition = NodeZPosition.agents.rawValue
-                    node.gridPoint = GridPoint(x: x, y: y)
-                    self.tmProps.addChild(node)
-                    node.position = self.tmProps.centerOfTile(atColumn: x, row: y)
+                    self.isPlaceable(location: gridPoint),
+                    gridPoint != targetPosition {
+                    self.summonAgent(at: gridPoint)
+                }
+            }
+        }
+    }
+    
+    private func summonAgent(at gridPoint: GridPoint) {
+        guard let graph = self.graph, self.isPlaceable(location: gridPoint) else { return }
+        let node = self.poolingSystem.pop()
+        node.zPosition = NodeZPosition.agents.rawValue
+        node.gridPoint = GridPoint(x: gridPoint.x, y: gridPoint.y)
+        self.tmProps.addChild(node)
+        node.position = self.tmProps.centerOfTile(atColumn: gridPoint.x, row: gridPoint.y)
+        switch self.currentPathfindMode {
+        case .dijkstra:
+            node.followPath(gridGraph: graph) {
+                node.removeAllActions()
+                self.poolingSystem.push(node: node)
+            }
+        case .aStar:
+            guard let target = self.targetGridPosition else { return }
+            node.followGKPath(gridGraph: graph, toPoint: target) {
+                node.removeAllActions()
+                self.poolingSystem.push(node: node)
+            }
+        }
+    }
+    
+    private func recalculateAgentsPath() {
+        guard let graph = self.graph else { return }
+        let nodes = self.tmProps.children.compactMap { return $0 as? WalkerNode }
+        for node in nodes {
+            node.removeAllActions()
+            if self.isPlaceable(location: node.gridPoint) {
+                switch self.currentPathfindMode {
+                case .dijkstra:
                     node.followPath(gridGraph: graph) {
                         node.removeAllActions()
                         self.poolingSystem.push(node: node)
                     }
+                case .aStar:
+                    guard let target = self.targetGridPosition else { return }
+                    node.followGKPath(gridGraph: graph, toPoint: target) {
+                        node.removeAllActions()
+                        self.poolingSystem.push(node: node)
+                    }
                 }
+            } else {
+                self.poolingSystem.push(node: node)
             }
         }
     }
@@ -236,6 +267,7 @@ extension TileMapScene {
     }
 }
 
+// MARK: - Buttons
 extension TileMapScene {
     private func setupButtons() {
         let buttonNode = (self.childNode(named: TileMapSceneNodeName.Buttons) as! SKReferenceNode).baseChildrens()!
@@ -256,7 +288,7 @@ extension TileMapScene {
         }
         let fastForwardButton: Button = buttonNode.childNode(named: TopMenuButtonsName.FastForwardButton) as! Button
         fastForwardButton.actions[.began] = { [unowned self] button in
-            self.elapsedTimeSinceSpawn = self.spawnInterval
+            self.summonAgents()
         }
         let controlButton: Button = buttonNode.childNode(named: TopMenuButtonsName.StartStopButton) as! Button
         controlButton.actions[.began] = { [unowned self] button in
@@ -269,13 +301,32 @@ extension TileMapScene {
                 button.texture = TopMenuButtonTextures.stopTexture.texture
             }
         }
-        self.buttons = [spawnButton, wallButton, targetButton, fastForwardButton, controlButton]
+        let switchPathfind: Button = buttonNode.childNode(named: TopMenuButtonsName.PathfindModeButton) as! Button
+        switchPathfind.actions[.began] = { [unowned self] button in
+            let label = button.children.first as? SKLabelNode
+            switch self.currentPathfindMode {
+            case .dijkstra:
+                self.currentPathfindMode = .aStar
+                label?.text = "A*"
+            case .aStar:
+                self.currentPathfindMode = .dijkstra
+                label?.text = "D"
+            }
+        }
+        self.buttons = [spawnButton, wallButton, targetButton, fastForwardButton, controlButton, switchPathfind]
         self.buttons.forEach { $0.zPosition = NodeZPosition.ui.rawValue }
     }
 }
 
+// MARK: - Labeled debug functions
 #if LABELED
 extension TileMapScene {
+    private func plotPath(from location: GridPoint) {
+        guard let path = self.graph?.findPath(from: vector_int2(x: Int32(location.x), y: Int32(location.y))) else { return }
+        let gridPoints = path.map { return GridPoint(x: Int($0.x), y: Int($0.y)) }
+        gridPoints.forEach { self.costLabels[$0]?.fontColor = UIColor.red }
+    }
+    
     private func updateCostLabels() {
         for column in 0..<self.tmFloor.numberOfColumns {
             for row in 0..<self.tmFloor.numberOfRows {

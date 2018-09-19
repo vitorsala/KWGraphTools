@@ -14,7 +14,7 @@
 		556B2076A3FBBD16E63BF4F839FB0CEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		5CF5F16CF5EEF6E634EAB6A9904B6802 /* KWGraphTools-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD6298F9BE5474D052B6E65A30EA6B49 /* KWGraphTools-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7AC3EBB68C92B6CFB116D77AF29367B5 /* KWGridGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7446594712DBF24ABF3F9EF737291E37 /* KWGridGraph.swift */; };
-		7D62C2951370A95D64C6C96A45B08E23 /* KWDjikstraPathfind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */; };
+		7D62C2951370A95D64C6C96A45B08E23 /* KWDijkstraPathfind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6364E53566193E0CE93A25BF33DDAE23 /* KWDijkstraPathfind.swift */; };
 		80D899C1C7E305B74AFD13725E57B5CB /* Pods-KWGraphTools_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC24226F266A9168C209161CDA2D0ACA /* Pods-KWGraphTools_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81B52B1B650DE536E272750AA7A82D66 /* Pods-KWGraphTools_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894D54256DF97CF8B7F4BB4EC6DC2854 /* Pods-KWGraphTools_Tests-dummy.m */; };
 		DBCC853F46E49D92824C76B8F17DCF22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -54,7 +54,7 @@
 		4F298DED087D8C37BCC2871AD0ECB501 /* Pods-KWGraphTools_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KWGraphTools_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		57AA35C4218988FE2CDC7A1CD06FD6B3 /* Pods_KWGraphTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KWGraphTools_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AABA410EB372C31855423F1562C162D /* KWGraphTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KWGraphTools-prefix.pch"; sourceTree = "<group>"; };
-		6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWDjikstraPathfind.swift; sourceTree = "<group>"; };
+		6364E53566193E0CE93A25BF33DDAE23 /* KWDijkstraPathfind.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KWDijkstraPathfind.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6638C2CCCF6CFC3149B3FA2E94ED8E7F /* Pods-KWGraphTools_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KWGraphTools_Example-umbrella.h"; sourceTree = "<group>"; };
 		6B9E94E75DDB675B67DAF5576DC7AB91 /* Pods-KWGraphTools_Tests.labeled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KWGraphTools_Tests.labeled.xcconfig"; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		1A3A5989FFCE1FB6F4573D71DC544A1C /* Dijkstra */ = {
 			isa = PBXGroup;
 			children = (
-				6364E53566193E0CE93A25BF33DDAE23 /* KWDjikstraPathfind.swift */,
+				6364E53566193E0CE93A25BF33DDAE23 /* KWDijkstraPathfind.swift */,
 			);
 			path = Dijkstra;
 			sourceTree = "<group>";
@@ -415,7 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D62C2951370A95D64C6C96A45B08E23 /* KWDjikstraPathfind.swift in Sources */,
+				7D62C2951370A95D64C6C96A45B08E23 /* KWDijkstraPathfind.swift in Sources */,
 				DDB1DA20E3B155F56F3020DC644A1867 /* KWGraphTools-dummy.m in Sources */,
 				7AC3EBB68C92B6CFB116D77AF29367B5 /* KWGridGraph.swift in Sources */,
 				4A54367084EFA4E778BE1B40C4EDC78E /* KWGridGraphNode.swift in Sources */,

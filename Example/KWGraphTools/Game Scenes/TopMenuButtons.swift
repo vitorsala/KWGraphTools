@@ -17,6 +17,7 @@ enum TopMenuButtonsName: String, NodeName {
     case Selector
     case StartStopButton
     case FastForwardButton
+    case PathfindModeButton
 }
 
 enum TopMenuButtonTextures: String {
