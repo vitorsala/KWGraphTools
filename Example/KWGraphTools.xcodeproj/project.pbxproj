@@ -12,6 +12,8 @@
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		C45AF1B9215565110017312F /* KWGraphToolsPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AF1B8215565110017312F /* KWGraphToolsPerformanceTest.swift */; };
+		C45AF1BB2155651F0017312F /* KWGraphToolsMapGeneration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AF1BA2155651F0017312F /* KWGraphToolsMapGeneration.swift */; };
 		C4D7964E2148838A005EAFE8 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D796372148838A005EAFE8 /* GridPoint.swift */; };
 		C4D7964F2148838A005EAFE8 /* vector_int2+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D796392148838A005EAFE8 /* vector_int2+Utils.swift */; };
 		C4D796502148838A005EAFE8 /* SKNode+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D7963A2148838A005EAFE8 /* SKNode+Utils.swift */; };
@@ -63,6 +65,8 @@
 		A8003D3151D8796EF0938CBE /* Pods_KWGraphTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KWGraphTools_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF855CCF5FD1798264EDCC3D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BC6E40644A83923FFFF80E67 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		C45AF1B8215565110017312F /* KWGraphToolsPerformanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWGraphToolsPerformanceTest.swift; sourceTree = "<group>"; };
+		C45AF1BA2155651F0017312F /* KWGraphToolsMapGeneration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWGraphToolsMapGeneration.swift; sourceTree = "<group>"; };
 		C4D796372148838A005EAFE8 /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
 		C4D796392148838A005EAFE8 /* vector_int2+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "vector_int2+Utils.swift"; sourceTree = "<group>"; };
 		C4D7963A2148838A005EAFE8 /* SKNode+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Utils.swift"; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				C45AF1B8215565110017312F /* KWGraphToolsPerformanceTest.swift */,
+				C45AF1BA2155651F0017312F /* KWGraphToolsMapGeneration.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4D796552148838A005EAFE8 /* NodeName.swift in Sources */,
+				C45AF1B9215565110017312F /* KWGraphToolsPerformanceTest.swift in Sources */,
 				C4D796512148838A005EAFE8 /* SKTileMap+Utils.swift in Sources */,
 				C4D7964E2148838A005EAFE8 /* GridPoint.swift in Sources */,
 				C4D796542148838A005EAFE8 /* Poolable.swift in Sources */,
@@ -445,6 +452,7 @@
 				C4D796502148838A005EAFE8 /* SKNode+Utils.swift in Sources */,
 				C4D7965F2148838A005EAFE8 /* TopMenuButtons.swift in Sources */,
 				C4D796532148838A005EAFE8 /* SKScene+Utils.swift in Sources */,
+				C45AF1BB2155651F0017312F /* KWGraphToolsMapGeneration.swift in Sources */,
 				C4D796522148838A005EAFE8 /* SKReferenceNode+Childrens.swift in Sources */,
 				C4D796562148838A005EAFE8 /* TileName.swift in Sources */,
 			);

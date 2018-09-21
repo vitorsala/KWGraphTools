@@ -11,6 +11,21 @@ import GameplayKit
 open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     private var pathfind: KWDijkstraPathfind = KWDijkstraPathfind()
     private var targetPoint: vector_int2 = vector_int2(x:0, y: 0)
+    var avoidEdges: Bool = false
+    
+    public init(fromGridStartingAt position: vector_int2,
+                width: Int32,
+                height: Int32,
+                diagonalsAllowed: Bool,
+                avoidEdges: Bool,
+                nodeClass: AnyClass) {
+        self.avoidEdges = avoidEdges
+        super.init(fromGridStartingAt: position, width: width, height: height, diagonalsAllowed: diagonalsAllowed, nodeClass: nodeClass)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     /// Remove obstacles given an walkable tile map
     ///
@@ -18,9 +33,8 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     open func addWalkablePoints(fromTileMap tileMap: SKTileMapNode) {
         for y in 0..<self.gridHeight {
             for x in 0..<self.gridWidth where tileMap.haveTile(atColumn: x, row: y) {
-                if let node: KWGridGraphNode = self.node(atGridPosition: vector_int2(x: Int32(x), y: Int32(y))) {
-                    self.connectToAdjacentNodes(node: node)
-                }
+                let position = vector_int2(x: Int32(x), y: Int32(y))
+                self.removeObstacle(atGridPosition: position)
             }
         }
     }
@@ -31,9 +45,8 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     open func addObstacle(fromTileMap tileMap: SKTileMapNode) {
         for y in 0..<self.gridHeight {
             for x in 0..<self.gridWidth where tileMap.haveTile(atColumn: x, row: y) {
-                if let node: KWGridGraphNode = self.node(atGridPosition: vector_int2(x: Int32(x), y: Int32(y))) {
-                    self.remove([node])
-                }
+                let position = vector_int2(x: Int32(x), y: Int32(y))
+                self.addObstacle(atGridPosition: position)
             }
         }
     }
@@ -44,10 +57,8 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     open func addObstacle(fromGridGraph gridGraph: KWGridGraph) {
         for y in 0..<self.gridHeight {
             for x in 0..<self.gridWidth {
-                let vector: vector_int2 = vector_int2(x: Int32(x), y: Int32(y))
-                if gridGraph.node(atGridPosition: vector) != nil, let node = self.node(atGridPosition: vector) {
-                    self.remove([node])
-                }
+                let position = vector_int2(x: Int32(x), y: Int32(y))
+                self.addObstacle(atGridPosition: position)
             }
         }
     }
@@ -58,6 +69,7 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     open func addObstacle(atGridPosition point: vector_int2) {
         guard let node = self.node(atGridPosition: point) else { return }
         self.remove([node])
+        self.removeEdgeConnections(nearPoint: point)
         if self.pathfind.pathsGenerated {
             self.pathfind.generatePaths(forGrid: self, convergingToPoint: self.targetPoint)
         }
@@ -69,10 +81,29 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     open func removeObstacle(atGridPosition point: vector_int2) {
         guard self.node(atGridPosition: point) == nil else { return }
         let node = KWGridGraphNode(gridPosition: point)
+        self.restoreEdgeConnections(nearPoint: point)
         self.connectToAdjacentNodes(node: node)
         if self.pathfind.pathsGenerated {
             self.pathfind.generatePaths(forGrid: self, convergingToPoint: self.targetPoint)
         }
+    }
+    
+    /// Get GraphNode at given position
+    ///
+    /// - Parameter position: CGPoint with point
+    /// - Returns: The node or nil if the given position don't have node
+    open func node(atGridPosition position: CGPoint) -> KWGridGraphNode? {
+        return self.node(atGridPosition: vector_int2(x: Int32(position.x), y: Int32(position.y)))
+    }
+    
+    /// Get GraphNode at given position
+    ///
+    /// - Parameters:
+    ///   - x: position in x axis
+    ///   - y: position in y axis
+    /// - Returns: The node or nil if the given position don't have node
+    open func nodeAtGridPosition(x: Int, y: Int) -> KWGridGraphNode? {
+        return self.node(atGridPosition: vector_int2(x: Int32(x), y: Int32(y)))
     }
 }
 
@@ -109,11 +140,29 @@ extension KWGridGraph {
 }
 
 extension KWGridGraph {
-    open func node(atGridPosition position: CGPoint) -> KWGridGraphNode? {
-        return self.node(atGridPosition: vector_int2(x: Int32(position.x), y: Int32(position.y)))
+    internal func removeEdgeConnections(nearPoint point: vector_int2) {
+        guard !self.diagonalsAllowed, self.avoidEdges else { return }
+        for x in [point.x - 1, point.x + 1] {
+            if let n1 = self.node(atGridPosition: vector_int2(x: x, y: point.y)) {
+                for y in [point.y - 1, point.y + 1] {
+                    if let n2 = self.node(atGridPosition: vector_int2(x: point.x, y: y)) {
+                        n1.removeConnections(to: [n2], bidirectional: true)
+                    }
+                }
+            }
+        }
     }
     
-    open func nodeAtGridPosition(x: Int, y: Int) -> KWGridGraphNode? {
-        return self.node(atGridPosition: vector_int2(x: Int32(x), y: Int32(y)))
+    internal func restoreEdgeConnections(nearPoint point: vector_int2) {
+        guard !diagonalsAllowed, self.avoidEdges else { return }
+        for x in [point.x - 1, point.x + 1] {
+            if let n1 = self.node(atGridPosition: vector_int2(x: x, y: point.y)) {
+                for y in [point.y - 1, point.y + 1] {
+                    if let n2 = self.node(atGridPosition: vector_int2(x: point.x, y: y)) {
+                        n1.addConnections(to: [n2], bidirectional: true)
+                    }
+                }
+            }
+        }
     }
 }

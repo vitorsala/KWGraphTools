@@ -94,7 +94,7 @@ final class TileMapScene: SKScene {
     }
     
     override func sceneDidLoad() {
-        self.graph = tmFloor.generateGridGraph(diagonalAllowed: false)
+        self.graph = tmFloor.generateGridGraph(diagonalAllowed: true, avoidEdges: true)
         self.graph?.addObstacle(fromTileMap: tmWalls)
         self.setupButtons()
     }

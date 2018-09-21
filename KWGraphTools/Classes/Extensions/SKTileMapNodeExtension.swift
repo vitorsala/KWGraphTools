@@ -13,14 +13,17 @@ public extension SKTileMapNode {
     ///
     /// - Parameter diagonalAllowed: **Bool** indicating if this tile map accepts diagonal movements.
     /// - Returns: An **KWGridGraph** containing the graph
-    public func generateGridGraph(diagonalAllowed: Bool) -> KWGridGraph {
+    public func generateGridGraph(diagonalAllowed: Bool, avoidEdges: Bool = true) -> KWGridGraph {
         let graph: KWGridGraph = KWGridGraph(
             fromGridStartingAt: vector_int2(x: 0, y: 0),
             width: Int32(self.numberOfColumns),
             height: Int32(self.numberOfRows),
             diagonalsAllowed: diagonalAllowed,
+            avoidEdges: avoidEdges,
             nodeClass: KWGridGraphNode.self
         )
+        
+        graph.avoidEdges = avoidEdges
         
         // Seek for every non filled tile, and remove the graph node correspoding to the tile.
         for row in 0..<self.numberOfRows {
