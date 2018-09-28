@@ -12,8 +12,6 @@
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		C45AF1B9215565110017312F /* KWGraphToolsPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AF1B8215565110017312F /* KWGraphToolsPerformanceTest.swift */; };
-		C45AF1BB2155651F0017312F /* KWGraphToolsMapGeneration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AF1BA2155651F0017312F /* KWGraphToolsMapGeneration.swift */; };
 		C4D7964E2148838A005EAFE8 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D796372148838A005EAFE8 /* GridPoint.swift */; };
 		C4D7964F2148838A005EAFE8 /* vector_int2+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D796392148838A005EAFE8 /* vector_int2+Utils.swift */; };
 		C4D796502148838A005EAFE8 /* SKNode+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D7963A2148838A005EAFE8 /* SKNode+Utils.swift */; };
@@ -33,6 +31,8 @@
 		C4D7965E2148838A005EAFE8 /* TopMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C4D7964C2148838A005EAFE8 /* TopMenuScene.sks */; };
 		C4D7965F2148838A005EAFE8 /* TopMenuButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D7964D2148838A005EAFE8 /* TopMenuButtons.swift */; };
 		C4D7966121488396005EAFE8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D7966021488396005EAFE8 /* Images.xcassets */; };
+		C4DE59C3215B105D000C7988 /* KWGraphToolsPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AF1B8215565110017312F /* KWGraphToolsPerformanceTest.swift */; };
+		C4DE59C4215B1061000C7988 /* KWGraphToolsMapGeneration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AF1BA2155651F0017312F /* KWGraphToolsMapGeneration.swift */; };
 		FD9514505A66E6DFB28BEC92 /* Pods_KWGraphTools_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8003D3151D8796EF0938CBE /* Pods_KWGraphTools_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -327,7 +327,7 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = KY9XTC3U67;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -437,7 +437,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4D796552148838A005EAFE8 /* NodeName.swift in Sources */,
-				C45AF1B9215565110017312F /* KWGraphToolsPerformanceTest.swift in Sources */,
 				C4D796512148838A005EAFE8 /* SKTileMap+Utils.swift in Sources */,
 				C4D7964E2148838A005EAFE8 /* GridPoint.swift in Sources */,
 				C4D796542148838A005EAFE8 /* Poolable.swift in Sources */,
@@ -452,7 +451,6 @@
 				C4D796502148838A005EAFE8 /* SKNode+Utils.swift in Sources */,
 				C4D7965F2148838A005EAFE8 /* TopMenuButtons.swift in Sources */,
 				C4D796532148838A005EAFE8 /* SKScene+Utils.swift in Sources */,
-				C45AF1BB2155651F0017312F /* KWGraphToolsMapGeneration.swift in Sources */,
 				C4D796522148838A005EAFE8 /* SKReferenceNode+Childrens.swift in Sources */,
 				C4D796562148838A005EAFE8 /* TileName.swift in Sources */,
 			);
@@ -462,6 +460,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DE59C3215B105D000C7988 /* KWGraphToolsPerformanceTest.swift in Sources */,
+				C4DE59C4215B1061000C7988 /* KWGraphToolsMapGeneration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,8 +611,7 @@
 				OTHER_SWIFT_FLAGS = "-DDEBUG $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -629,8 +628,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -649,11 +647,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KWGraphTools_Example.app/KWGraphTools_Example";
 			};
 			name = Debug;
@@ -668,11 +667,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KWGraphTools_Example.app/KWGraphTools_Example";
 			};
 			name = Release;
@@ -745,8 +745,7 @@
 				OTHER_SWIFT_FLAGS = "-DLABELED $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Labeled;
@@ -765,11 +764,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KWGraphTools_Example.app/KWGraphTools_Example";
 			};
 			name = Labeled;

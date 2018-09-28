@@ -43,7 +43,7 @@ private enum NodeZPosition: CGFloat {
 }
 
 final class TileMapScene: SKScene {
-    private var graph: KWGridGraph?
+    private var graph: KWDijkstraGridGraph?
     private var targetGridPosition: GridPoint?
     private var spawnGridPosition: GridPoint?
     private var costLabels: [GridPoint: SKLabelNode] = [:]
@@ -153,7 +153,7 @@ extension TileMapScene {
             self.tmProps.setTileGroup(tile, forColumn: location.x, row: location.y)
         }
         self.targetGridPosition = location
-        self.graph?.generatePaths(convergingToPoint: vector_int2(point: location))
+        self.graph?.generatePaths(convergingToPoint: location.cgPoint)
     }
     
     private func setWall(atLocation location: GridPoint) {
@@ -165,18 +165,18 @@ extension TileMapScene {
                 if let tile: SKTileGroup = self.tmWalls.tileSet.tileGroup(named: WallSet.wall_orange) {
                     self.tmWalls.setTileGroup(tile, forColumn: location.x, row: location.y)
                 }
-                self.graph?.addObstacle(atGridPosition: vector_int2(point: location))
+                self.graph?.addObstacle(atGridPosition: location.cgPoint)
             } else if let spawnPoint = self.targetGridPosition, location != spawnPoint {
                 if let tile: SKTileGroup = self.tmWalls.tileSet.tileGroup(named: WallSet.wall_orange) {
                     self.tmWalls.setTileGroup(tile, forColumn: location.x, row: location.y)
                 }
-                self.graph?.addObstacle(atGridPosition: vector_int2(point: location))
+                self.graph?.addObstacle(atGridPosition: location.cgPoint)
             } else {
                 return
             }
         }
         if let targetPosition = self.targetGridPosition {
-            self.graph?.generatePaths(convergingToPoint: vector_int2(point: targetPosition))
+            self.graph?.generatePaths(convergingToPoint: targetPosition.cgPoint)
         }
     }
     
@@ -196,7 +196,7 @@ extension TileMapScene {
         repeat {
             x = self.randomGenerator.nextInt(upperBound: self.tmFloor.numberOfColumns)
             y = self.randomGenerator.nextInt(upperBound: self.tmFloor.numberOfRows)
-        } while !graph.haveValidPath(from: vector_int2(Int32(x), Int32(y))) || !self.isPlaceable(location: GridPoint(x: x, y: y))
+        } while !graph.haveValidPath(from: CGPoint(x: x, y: y)) || !self.isPlaceable(location: GridPoint(x: x, y: y))
         self.summonAgent(at: GridPoint(x: x, y: y))
     }
     
@@ -205,7 +205,7 @@ extension TileMapScene {
         for y in 0..<self.tmFloor.numberOfRows {
             for x in 0..<self.tmFloor.numberOfColumns {
                 let gridPoint = GridPoint(x: x, y: y)
-                if graph.haveValidPath(from: vector_int2(Int32(x), Int32(y))),
+                if graph.haveValidPath(from: CGPoint(x: x, y: y)),
                     self.isPlaceable(location: gridPoint),
                     gridPoint != targetPosition {
                     self.summonAgent(at: gridPoint)

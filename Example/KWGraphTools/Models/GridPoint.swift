@@ -6,9 +6,13 @@
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
-import Foundation
+import SpriteKit
 
 struct GridPoint: Hashable {
     let x: Int
     let y: Int
+    
+    var cgPoint: CGPoint {
+        return CGPoint(x: self.x, y: self.y)
+    }
 }

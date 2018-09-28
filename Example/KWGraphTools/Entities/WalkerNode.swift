@@ -12,10 +12,10 @@ import KWGraphTools
 
 final class WalkerNode: SKShapeNode {
     var gridPoint: GridPoint = GridPoint(x: 0, y: 0)
-    var gridPath: [vector_int2] = []
+    var gridPath: [GKGridGraphNode] = []
     
-    func followPath(gridGraph: KWGridGraph, completion: @escaping (() -> Void)) {
-        self.gridPath = gridGraph.findPath(from: vector_int2(point: self.gridPoint))
+    func followPath(gridGraph: KWDijkstraGridGraph, completion: @escaping (() -> Void)) {
+        self.gridPath = gridGraph.findPath(from: self.gridPoint.cgPoint)
         guard !gridPath.isEmpty else {
             completion()
             return
@@ -24,7 +24,7 @@ final class WalkerNode: SKShapeNode {
         self.animate(completion: completion)
     }
     
-    func followGKPath(gridGraph: KWGridGraph, toPoint target: GridPoint, completion: @escaping (() -> Void)) {
+    func followGKPath(gridGraph: KWDijkstraGridGraph, toPoint target: GridPoint, completion: @escaping (() -> Void)) {
         guard let source = gridGraph.node(atGridPosition: vector_int2(point: self.gridPoint)),
             let target = gridGraph.node(atGridPosition: vector_int2(point: target)) else {
                 completion()
@@ -37,7 +37,7 @@ final class WalkerNode: SKShapeNode {
             completion()
             return
         }
-        self.gridPath = path.dropFirst().map{ $0.gridPosition }
+        self.gridPath = path.dropFirst().map{ $0 }
         self.animate(completion: completion)
     }
     
@@ -50,10 +50,10 @@ final class WalkerNode: SKShapeNode {
         guard let tileMap = self.parent as? SKTileMapNode else { return [] }
         var actions: [SKAction] = []
         for node in self.gridPath {
-            let destinationPoint = tileMap.centerOfTile(atColumn: Int(node.x), row: Int(node.y))
+            let destinationPoint = tileMap.centerOfTile(atColumn: Int(node.gridPosition.x), row: Int(node.gridPosition.y))
             let move = SKAction.move(to: destinationPoint, duration: 0.5)
             let update = SKAction.run {
-                self.gridPoint = GridPoint(x: Int(node.x), y: Int(node.y))
+                self.gridPoint = GridPoint(x: Int(node.gridPosition.x), y: Int(node.gridPosition.y))
             }
             actions.append(move)
             actions.append(update)

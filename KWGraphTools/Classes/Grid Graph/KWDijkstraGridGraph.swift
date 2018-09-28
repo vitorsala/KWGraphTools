@@ -1,5 +1,5 @@
 //
-//  KWGridGraph.swift
+//  KWDijkstraGridGraph.swift
 //  KPathFinding
 //
 //  Created by Vitor Kawai Sala on 28/08/18.
@@ -8,9 +8,11 @@
 import GameplayKit
 
 /// Grid Graph class for Djikstra algorithm
-open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
-    private var pathfind: KWDijkstraPathfind = KWDijkstraPathfind()
-    private var targetPoint: vector_int2 = vector_int2(x:0, y: 0)
+open class KWDijkstraGridGraph: GKGridGraph<GKGridGraphNode> {
+    private var visited: Set<GKGridGraphNode> = Set<GKGridGraphNode>()
+    private var costs: [GKGridGraphNode: Float] = [:]
+    private var targetPoint: CGPoint = CGPoint.zero
+    private(set) var pathsGenerated: Bool = false
     var avoidEdges: Bool = false
     
     public init(fromGridStartingAt position: vector_int2,
@@ -18,7 +20,7 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
                 height: Int32,
                 diagonalsAllowed: Bool,
                 avoidEdges: Bool,
-                nodeClass: AnyClass) {
+                nodeClass: AnyClass = GKGridGraphNode.self) {
         self.avoidEdges = avoidEdges
         super.init(fromGridStartingAt: position, width: width, height: height, diagonalsAllowed: diagonalsAllowed, nodeClass: nodeClass)
     }
@@ -45,7 +47,7 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     open func addObstacle(fromTileMap tileMap: SKTileMapNode) {
         for y in 0..<self.gridHeight {
             for x in 0..<self.gridWidth where tileMap.haveTile(atColumn: x, row: y) {
-                let position = vector_int2(x: Int32(x), y: Int32(y))
+                let position = CGPoint(x: x, y: y)
                 self.addObstacle(atGridPosition: position)
             }
         }
@@ -54,10 +56,10 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     /// Generate obstacles given an another Grid Graph
     ///
     /// - Parameter gridGraph: The **KWGridGraph** containing the obstacles
-    open func addObstacle(fromGridGraph gridGraph: KWGridGraph) {
+    open func addObstacle(fromGridGraph gridGraph: KWDijkstraGridGraph) {
         for y in 0..<self.gridHeight {
             for x in 0..<self.gridWidth {
-                let position = vector_int2(x: Int32(x), y: Int32(y))
+                let position = CGPoint(x: x, y: y)
                 self.addObstacle(atGridPosition: position)
             }
         }
@@ -66,12 +68,13 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     /// Add an obstacle (removing graph node) at given location
     ///
     /// - Parameter point: point with coordinates of grid node that should be removed
-    open func addObstacle(atGridPosition point: vector_int2) {
+    open func addObstacle(atGridPosition point: CGPoint) {
         guard let node = self.node(atGridPosition: point) else { return }
+        let vectorPoint = vector_int2(point: point)
         self.remove([node])
-        self.removeEdgeConnections(nearPoint: point)
-        if self.pathfind.pathsGenerated {
-            self.pathfind.generatePaths(forGrid: self, convergingToPoint: self.targetPoint)
+        self.removeEdgeConnections(nearPoint: vectorPoint)
+        if self.pathsGenerated {
+            self.generatePaths(convergingToPoint: self.targetPoint)
         }
     }
     
@@ -80,11 +83,11 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     /// - Parameter point: point with coordinates of grid node that should be added
     open func removeObstacle(atGridPosition point: vector_int2) {
         guard self.node(atGridPosition: point) == nil else { return }
-        let node = KWGridGraphNode(gridPosition: point)
+        let node = GKGridGraphNode(gridPosition: point)
         self.restoreEdgeConnections(nearPoint: point)
         self.connectToAdjacentNodes(node: node)
-        if self.pathfind.pathsGenerated {
-            self.pathfind.generatePaths(forGrid: self, convergingToPoint: self.targetPoint)
+        if self.pathsGenerated {
+            self.generatePaths(convergingToPoint: self.targetPoint)
         }
     }
     
@@ -92,7 +95,7 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     ///
     /// - Parameter position: CGPoint with point
     /// - Returns: The node or nil if the given position don't have node
-    open func node(atGridPosition position: CGPoint) -> KWGridGraphNode? {
+    open func node(atGridPosition position: CGPoint) -> GKGridGraphNode? {
         return self.node(atGridPosition: vector_int2(x: Int32(position.x), y: Int32(position.y)))
     }
     
@@ -102,17 +105,22 @@ open class KWGridGraph: GKGridGraph<KWGridGraphNode> {
     ///   - x: position in x axis
     ///   - y: position in y axis
     /// - Returns: The node or nil if the given position don't have node
-    open func nodeAtGridPosition(x: Int, y: Int) -> KWGridGraphNode? {
+    open func nodeAtGridPosition(x: Int, y: Int) -> GKGridGraphNode? {
         return self.node(atGridPosition: vector_int2(x: Int32(x), y: Int32(y)))
     }
 }
 
-extension KWGridGraph {
+extension KWDijkstraGridGraph {
     /// Generate node cost for all nodes, in grid, to a given target.
     ///
     /// - Parameter point: **vector_int2** containing node that all paths should lead to.
-    public func generatePaths(convergingToPoint point: vector_int2) {
-        self.pathfind.generatePaths(forGrid: self, convergingToPoint: point)
+    public func generatePaths(convergingToPoint point: CGPoint) {
+        guard let startingNode = self.node(atGridPosition: point) else { return }
+        self.costs[startingNode] = 0
+        
+        self.visited.removeAll(keepingCapacity: true)
+        self.updateNodeCosts(startingFromNode: startingNode)
+        self.pathsGenerated = true
         self.targetPoint = point
     }
     
@@ -124,8 +132,25 @@ extension KWGridGraph {
     /// ```
     /// - Parameter startNode: **vector_int2** the starting point where path will start from.
     /// - Returns: **[vector_int2]** containing every grid point the shortest path
-    public func findPath(from startNode: vector_int2) -> [vector_int2] {
-        let path = self.pathfind.findPath(inGrid: self, from: startNode)
+    public func findPath(from startNode: CGPoint) -> [GKGridGraphNode] {
+        guard var node = self.node(atGridPosition: startNode), self.visited.contains(node) else { return [] }
+        guard (self.costs[node] ?? 0) > 0 else { return [node] }
+        let capacity = (self.gridWidth * self.gridHeight) >> 1
+        let upath = UnsafeMutablePointer<GKGridGraphNode>.allocate(capacity: capacity)
+        var count = 0
+        upath[count] = node
+        count += 1
+        repeat {
+            for case let connectedNode as GKGridGraphNode in node.connectedNodes {
+                if self.costs[connectedNode]! < self.costs[node]! {
+                    node = connectedNode
+                }
+            }
+            upath[count] = node
+            count += 1
+        } while self.costs[node]! > 0
+        let path = Array(UnsafeBufferPointer(start: upath, count: count))
+        upath.deallocate()
         return path
     }
     
@@ -134,12 +159,27 @@ extension KWGridGraph {
     /// This method will return **false** if `generatePaths(convergingToPoint:)` was not called prior this method.
     /// - Parameter point: **vector_int2** origin point where path will start.
     /// - Returns: **Bool** indicating if the given point have a valid path to target.
-    public func haveValidPath(from point: vector_int2) -> Bool {
-        return self.pathfind.haveValidPath(inGrid: self, from: point)
+    public func haveValidPath(from point: CGPoint) -> Bool {
+        guard let node = self.node(atGridPosition: point) else { return false }
+        return self.visited.contains(node)
+    }
+    
+    private func updateNodeCosts(startingFromNode node: GKGridGraphNode) {
+        let frontier: PriorityQueue<GKGridGraphNode> = PriorityQueue()
+        self.visited.insert(node)
+        frontier.enqueue(node, priority: 0)
+        while let currentNode: GKGridGraphNode = frontier.dequeue() {
+            for case let connectedNode as GKGridGraphNode in currentNode.connectedNodes where !self.visited.contains(connectedNode) {
+                let currentCost = self.costs[currentNode]! + currentNode.cost(to: connectedNode)
+                self.costs[connectedNode] = currentCost
+                self.visited.insert(connectedNode)
+                frontier.enqueue(connectedNode, priority: currentCost)
+            }
+        }
     }
 }
 
-extension KWGridGraph {
+extension KWDijkstraGridGraph {
     internal func removeEdgeConnections(nearPoint point: vector_int2) {
         guard !self.diagonalsAllowed, self.avoidEdges else { return }
         for x in [point.x - 1, point.x + 1] {

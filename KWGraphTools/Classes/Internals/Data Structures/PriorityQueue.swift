@@ -7,12 +7,27 @@
 
 import Foundation
 
+struct PriorityQueueElement<T>: Comparable {
+    let element: T
+    let priority: Float
+    
+    static func < (lhs: PriorityQueueElement, rhs: PriorityQueueElement) -> Bool {
+        return lhs.priority < rhs.priority
+    }
+    static func > (lhs: PriorityQueueElement, rhs: PriorityQueueElement) -> Bool {
+        return lhs.priority > rhs.priority
+    }
+    static func == (lhs: PriorityQueueElement, rhs: PriorityQueueElement) -> Bool {
+        return lhs.priority == rhs.priority
+    }
+}
+
 // MARK :- Priority Queue
 /// Priority queue to be used with Djikstra Algorithm
-internal class PriorityQueue<T: Comparable> {
+internal class PriorityQueue<T> {
     
     /// The array storing the Heap Tree
-    private var tree: [T] = []
+    private var tree: [PriorityQueueElement<T>] = []
     
     // MARK: Tree's status
     /// Return the number of elements in the tree
@@ -27,24 +42,11 @@ internal class PriorityQueue<T: Comparable> {
     
     /// Return the root element of the tree.
     internal var root: T? {
-        return tree.first
+        return tree.first?.element
     }
     
     /// Initialize an empty queue
     internal init(){}
-    
-    /// Inilialize an queue with an array of elements.
-    ///
-    /// the element's array must be the same size of priorities's array
-    /// - Parameters:
-    ///   - array: An array containing all elements to be included to the queue.
-    ///   - priorities: An array containing all priorities associated with element's array
-    /// - Throws: An *PriorityQueueError* if the element's array size does not match with the priorities array size
-    internal init(withArray array: [T]) throws {
-        for elem in array {
-            self.enqueue(elem)
-        }
-    }
     
     #if DEBUG
     /// MARK: - Convenience functions
@@ -63,8 +65,9 @@ extension PriorityQueue {
     /// - Parameters:
     ///   - element: element to be enqueued
     ///   - withPriority: the element priority in the queue
-    internal func enqueue(_ element: T){
-        self.tree.append(element)
+    internal func enqueue(_ element: T, priority: Float){
+        let elem = PriorityQueueElement(element: element, priority: priority)
+        self.tree.append(elem)
         self.heapifyUp(fromIndex: self.count - 1)
     }
     
@@ -79,7 +82,7 @@ extension PriorityQueue {
         if !self.isEmpty {
             heapifyDown(fromIndex: 0)
         }
-        return ret
+        return ret.element
     }
 }
 
@@ -112,8 +115,7 @@ extension PriorityQueue {
             if tree[sel] < tree[i] {
                 self.tree.swapAt(sel, i)
                 i = sel
-            }
-            else {
+            } else {
                 return
             }
         }
@@ -129,8 +131,7 @@ extension PriorityQueue {
         
         if left >= self.count {
             return nil
-        }
-        else if right >= self.count {
+        } else if right >= self.count {
             return left
         }
         return (tree[left] < tree[right] ? left : right)
@@ -139,7 +140,6 @@ extension PriorityQueue {
     /// Build heap
     private func buildHeap() {
         guard self.count >= 0 else { return }
-        
         for i in stride(from: (self.count >> 1) - 1, to: -1, by: -1) {
             heapifyDown(fromIndex: i)
         }

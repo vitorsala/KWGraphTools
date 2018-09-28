@@ -1,6 +1,6 @@
 //
 //  SKTileMapNodeExtension.swift
-//  KPathFinding
+//  KWGraphTools
 //
 //  Created by Vitor Kawai Sala on 28/08/18.
 //
@@ -13,14 +13,13 @@ public extension SKTileMapNode {
     ///
     /// - Parameter diagonalAllowed: **Bool** indicating if this tile map accepts diagonal movements.
     /// - Returns: An **KWGridGraph** containing the graph
-    public func generateGridGraph(diagonalAllowed: Bool, avoidEdges: Bool = true) -> KWGridGraph {
-        let graph: KWGridGraph = KWGridGraph(
+    public func generateGridGraph(diagonalAllowed: Bool, avoidEdges: Bool = true) -> KWDijkstraGridGraph {
+        let graph: KWDijkstraGridGraph = KWDijkstraGridGraph(
             fromGridStartingAt: vector_int2(x: 0, y: 0),
             width: Int32(self.numberOfColumns),
             height: Int32(self.numberOfRows),
             diagonalsAllowed: diagonalAllowed,
-            avoidEdges: avoidEdges,
-            nodeClass: KWGridGraphNode.self
+            avoidEdges: avoidEdges
         )
         
         graph.avoidEdges = avoidEdges
@@ -28,7 +27,7 @@ public extension SKTileMapNode {
         // Seek for every non filled tile, and remove the graph node correspoding to the tile.
         for row in 0..<self.numberOfRows {
             for column in 0..<self.numberOfColumns where !self.haveTile(atColumn: column, row: row) {
-                if let node: KWGridGraphNode = graph.node(atGridPosition: vector_int2(x: Int32(column), y: Int32(row))) {
+                if let node: GKGridGraphNode = graph.node(atGridPosition: vector_int2(x: Int32(column), y: Int32(row))) {
                     graph.remove([node])
                 }
             }
