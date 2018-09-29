@@ -135,22 +135,15 @@ extension KWDijkstraGridGraph {
     public func findPath(from startNode: CGPoint) -> [GKGridGraphNode] {
         guard var node = self.node(atGridPosition: startNode), self.visited.contains(node) else { return [] }
         guard (self.costs[node] ?? 0) > 0 else { return [node] }
-        let capacity = (self.gridWidth * self.gridHeight) >> 1
-        let upath = UnsafeMutablePointer<GKGridGraphNode>.allocate(capacity: capacity)
-        var count = 0
-        upath[count] = node
-        count += 1
+        var path: [GKGridGraphNode] = [node]
         repeat {
             for case let connectedNode as GKGridGraphNode in node.connectedNodes {
                 if self.costs[connectedNode]! < self.costs[node]! {
                     node = connectedNode
                 }
             }
-            upath[count] = node
-            count += 1
+            path.append(node)
         } while self.costs[node]! > 0
-        let path = Array(UnsafeBufferPointer(start: upath, count: count))
-        upath.deallocate()
         return path
     }
     

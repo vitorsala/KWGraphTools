@@ -16,11 +16,11 @@ final class WalkerNode: SKShapeNode {
     
     func followPath(gridGraph: KWDijkstraGridGraph, completion: @escaping (() -> Void)) {
         self.gridPath = gridGraph.findPath(from: self.gridPoint.cgPoint)
-        guard !gridPath.isEmpty else {
+        _ = self.gridPath.removeFirst()
+        guard !self.gridPath.isEmpty else {
             completion()
             return
         }
-        _ = self.gridPath.removeFirst()
         self.animate(completion: completion)
     }
     
@@ -30,14 +30,14 @@ final class WalkerNode: SKShapeNode {
                 completion()
                 return
         }
-        let path = gridGraph.findPath(from: source, to: target).compactMap {
+        self.gridPath = gridGraph.findPath(from: source, to: target).compactMap {
             return $0 as? GKGridGraphNode
         }
-        guard !path.isEmpty else {
+        _ = self.gridPath.removeFirst()
+        guard !self.gridPath.isEmpty else {
             completion()
             return
         }
-        self.gridPath = path.dropFirst().map{ $0 }
         self.animate(completion: completion)
     }
     

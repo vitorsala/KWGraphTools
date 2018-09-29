@@ -12,7 +12,7 @@ import GameplayKit
 import KWGraphTools
 
 class KWGraphToolsPerformanceTest: XCTestCase {
-    var numberOfAgents: Int = 1000
+    var numberOfAgents: Int = 10000
     var mapSize: Int = 27
     
     func testGKPerformanceForEmptyMap() {
