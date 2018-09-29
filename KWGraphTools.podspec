@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KWGraphTools'
-  s.version          = '0.1.1'
+  s.version          = '0.2.0'
   s.summary          = 'A simple pathfinding integration with SpriteKit and GameplayKit.'
 
 # This description is used to generate tags and improve search results.
