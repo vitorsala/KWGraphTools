@@ -24,7 +24,7 @@ final class WalkerNode: SKShapeNode {
         self.animate(completion: completion)
     }
     
-    func followGKPath(gridGraph: KWDijkstraGridGraph, toPoint target: GridPoint, completion: @escaping (() -> Void)) {
+    func followGKPath(gridGraph: GKGridGraph<GKGridGraphNode>, toPoint target: GridPoint, completion: @escaping (() -> Void)) {
         guard let source = gridGraph.node(atGridPosition: vector_int2(point: self.gridPoint)),
             let target = gridGraph.node(atGridPosition: vector_int2(point: target)) else {
                 completion()

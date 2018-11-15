@@ -163,7 +163,7 @@ extension KWDijkstraGridGraph {
         frontier.enqueue(node, priority: 0)
         while let currentNode: GKGridGraphNode = frontier.dequeue() {
             for case let connectedNode as GKGridGraphNode in currentNode.connectedNodes where !self.visited.contains(connectedNode) {
-                let currentCost = self.costs[currentNode]! + currentNode.cost(to: connectedNode)
+                let currentCost = self.costs[currentNode]! + 1
                 self.costs[connectedNode] = currentCost
                 self.visited.insert(connectedNode)
                 frontier.enqueue(connectedNode, priority: currentCost)

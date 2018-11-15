@@ -31,7 +31,7 @@ private enum SceneState {
 
 private enum PathfindMode {
     case dijkstra
-    case aStar
+    case gkAlgorithm
 }
 
 private enum NodeZPosition: CGFloat {
@@ -205,9 +205,7 @@ extension TileMapScene {
         for y in 0..<self.tmFloor.numberOfRows {
             for x in 0..<self.tmFloor.numberOfColumns {
                 let gridPoint = GridPoint(x: x, y: y)
-                if graph.haveValidPath(from: CGPoint(x: x, y: y)),
-                    self.isPlaceable(location: gridPoint),
-                    gridPoint != targetPosition {
+                if graph.haveValidPath(from: CGPoint(x: x, y: y)), gridPoint != targetPosition {
                     self.summonAgent(at: gridPoint)
                 }
             }
@@ -227,7 +225,7 @@ extension TileMapScene {
                 node.removeAllActions()
                 self.poolingSystem.push(node: node)
             }
-        case .aStar:
+        case .gkAlgorithm:
             guard let target = self.targetGridPosition else { return }
             node.followGKPath(gridGraph: graph, toPoint: target) {
                 node.removeAllActions()
@@ -248,7 +246,7 @@ extension TileMapScene {
                         node.removeAllActions()
                         self.poolingSystem.push(node: node)
                     }
-                case .aStar:
+                case .gkAlgorithm:
                     guard let target = self.targetGridPosition else { return }
                     node.followGKPath(gridGraph: graph, toPoint: target) {
                         node.removeAllActions()
@@ -306,9 +304,9 @@ extension TileMapScene {
             let label = button.children.first as? SKLabelNode
             switch self.currentPathfindMode {
             case .dijkstra:
-                self.currentPathfindMode = .aStar
-                label?.text = "A*"
-            case .aStar:
+                self.currentPathfindMode = .gkAlgorithm
+                label?.text = "GK"
+            case .gkAlgorithm:
                 self.currentPathfindMode = .dijkstra
                 label?.text = "D"
             }
